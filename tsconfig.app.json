@@ -29,6 +29,7 @@
       "@assets/*": ["src/assets/*"],
       "@components/*": ["src/components/*"],
       "@services/*": ["src/services/*"],
+      "@api/*": ["src/api/*"],
       "@types/*": ["src/types/*"],
       "@config/*": ["src/config/*"]
     }
