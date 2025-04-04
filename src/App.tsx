@@ -1,7 +1,5 @@
-import "./App.css"
-
 function App() {
-  return <></>
+  return <>Home page</>
 }
 
 export default App
