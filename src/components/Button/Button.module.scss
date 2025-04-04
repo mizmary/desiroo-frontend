@@ -1,0 +1,76 @@
+.button {
+  @apply flex items-center font-sans transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+
+  &--small {
+    @apply text-buttonS rounded-sm px-3 py-2;
+  }
+  &--medium {
+    @apply text-buttonM rounded px-4 py-2;
+  }
+  &--large {
+    @apply text-buttonL rounded-lg px-4 py-3;
+  }
+
+  &--purple {
+    &--primary {
+      @apply bg-purple text-white;
+      &:hover {
+        @apply bg-[#5838B1];
+      }
+    }
+    &--secondary {
+      @apply bg-none border text-purple border-purple;
+      &:hover {
+        background-color: rgba(88, 56, 177, 0.1);
+      }
+    }
+    &--tertiary {
+      @apply bg-none text-purple;
+      &:hover {
+        background-color: rgba(88, 56, 177, 0.1);
+      }
+    }
+  }
+
+  &--peach {
+    &--primary {
+      @apply bg-peach text-white;
+      &:hover {
+        @apply bg-[#D77437];
+      }
+    }
+    &--secondary {
+      @apply bg-none border text-peach border-peach;
+      &:hover {
+        background-color: rgba(215, 116, 55, 0.1);
+      }
+    }
+    &--tertiary {
+      @apply bg-none text-peach;
+      &:hover {
+        background-color: rgba(215, 116, 55, 0.1);
+      }
+    }
+  }
+
+  &--danger {
+    &--primary {
+      @apply bg-state-danger text-white;
+      &:hover {
+        @apply bg-[#C14141];
+      }
+    }
+    &--secondary {
+      @apply bg-none border text-state-danger border-state-danger;
+      &:hover {
+        background-color: rgba(193, 65, 65, 0.1);
+      }
+    }
+    &--tertiary {
+      @apply bg-none text-state-danger;
+      &:hover {
+        background-color: rgba(193, 65, 65, 0.1);
+      }
+    }
+  }
+}
