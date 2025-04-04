@@ -32,8 +32,8 @@ export function ListCard({ name, itemCount, averageBudget, acquiredPercentage }:
           </span>
         </div>
       </div>
-      <span>Количество элементов: {itemCount}</span>
-      <span>Средний бюджет: {averageBudget}</span>
+      <p>Количество элементов: {itemCount}</p>
+      <p>Средний бюджет: {averageBudget}</p>
       <div className="flex items-center gap-3 mt-2">
         <div className={styles["progressbar-wrap"]}>
           <div
