@@ -1,7 +1,7 @@
+import { pageConfig } from "@config/page.config"
 import ReactDOM from "react-dom/client"
 import { BrowserRouter, Route, Routes } from "react-router"
 import App from "./App"
-import { pageConfig } from "@config/page.config"
 import "./index.css"
 import { Auth } from "./screens/auth/Auth"
 

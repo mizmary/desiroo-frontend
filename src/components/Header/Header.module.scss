@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  @include color(background-color, white);
+  @include color(color, purple, 950);
+  @include radius(lg);
+  @include spacing-axis(padding, md, xl);
+  font-family: $font-comfortaa;
+
+  .title {
+    @include font(h3);
+  }
+
+  .menu {
+    display: flex;
+    align-items: center;
+  }
+}

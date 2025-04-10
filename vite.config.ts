@@ -1,6 +1,6 @@
-import { defineConfig } from "vite"
-import react from "@vitejs/plugin-react"
 import path from "path"
+import react from "@vitejs/plugin-react"
+import { defineConfig } from "vite"
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -14,7 +14,15 @@ export default defineConfig({
       "@api": path.resolve(__dirname, "./src/api"),
       "@types": path.resolve(__dirname, "./src/types"),
       "@config": path.resolve(__dirname, "./src/config"),
-      "@hooks": path.resolve(__dirname, "./src/hooks")
+      "@hooks": path.resolve(__dirname, "./src/hooks"),
+      "@styles": path.resolve(__dirname, "./src/styles")
+    }
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "@styles/variables"; @import "@styles/mixins";`
+      }
     }
   }
 })

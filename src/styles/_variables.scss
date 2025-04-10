@@ -1,0 +1,70 @@
+$colors: (
+  white: (
+    DEFAULT: #fdfcff
+  ),
+  purple: (
+    DEFAULT: #7853df,
+    50: #eee9fb,
+    100: #ddd4f7,
+    300: #9a7ee7, 
+    600: #4520ac,
+    950: #090416
+  ),
+  peach: (
+    DEFAULT: #ff924f,
+    50: #ffefe5,
+    100: #ffe0cc,
+    200: #ffc099,
+    300: #ffa166,
+    400: #ff8133
+  ),
+  grey: (
+    100: #e6e6e6,
+    200: #cccccc,
+    300: #b3b3b3,
+    400: #999999,
+    600: #666666,
+    700: #4d4d4d,
+    800: #333333
+  ),
+  state: (
+    danger: #eb4747
+  )
+);
+$gradient: linear-gradient(122.11deg, #FFA166 8.98%, #7853DF 70.92%);
+
+$font-manrope: "Manrope", "sans-serif";
+$font-comfortaa: "Comfortaa", "sans-serif";
+
+$fonts: (
+  h1: 700 48px/1.2 "Comfortaa",
+  h2: 600 32px/1.3 "Comfortaa",
+  h3: 500 24px/1.5 "Comfortaa",
+  h4: 400 20px/1.2 "Comfortaa",
+
+  bodyS: 400 14px/1.4 "Manrope",
+  bodyM: 400 16px/1.5 "Manrope",
+
+  buttonS: 600 12px/1.15 "Manrope",
+  buttonM: 600 14px/1.15 "Manrope", 
+  buttonL: 600 16px/1.25 "Manrope", 
+
+  input: 400 16px/1.25 "Manrope", 
+  helper: 300 12px/1.5 "Manrope", 
+  tagS: 500 12px/1.35 "Manrope", 
+);
+
+$spacing: (
+    xs: 4px,
+    sm: 8px,
+    md: 12px,
+    lg: 16px,
+    xl: 20px
+);
+
+$radius:(
+    sm: 6px,
+    md: 8px,
+    lg: 12px,
+    full: 9999px
+);

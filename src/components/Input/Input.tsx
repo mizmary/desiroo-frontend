@@ -1,8 +1,18 @@
+import React, { useState } from "react"
 import clsx from "clsx"
 import styles from "./Input.module.scss"
-import { InputProps } from "./input.types"
-import { useState } from "react"
-import React from "react"
+
+type Props = {
+  error?: boolean
+  disabled?: boolean
+  leftIcon?: string
+  rightIcon?: string
+  type?: string
+  label?: string
+  placeholder?: string
+  helperText?: string
+  className?: string
+}
 
 export function Input({
   type = "text",
@@ -14,13 +24,13 @@ export function Input({
   error,
   disabled,
   className
-}: InputProps) {
+}: Props) {
   const [value, setValue] = useState("")
 
-  const inputWrapperClass = clsx(
-    styles.inputWrapper,
-    disabled && styles["inputWrapper--disabled"],
-    error && styles["inputWrapper--error"],
+  const inputContainerClass = clsx(
+    styles.container,
+    disabled && styles.disabled,
+    error && styles.error,
     className
   )
 
@@ -38,8 +48,12 @@ export function Input({
 
   return (
     <label className={styles.label}>
-      {label && <span>{label}</span>}
-      <div className={inputWrapperClass}>
+      {label && (
+        <div className={styles.text}>
+          <span>{label}</span>
+        </div>
+      )}
+      <div className={inputContainerClass}>
         {leftIcon && <span className={iconClass}>{leftIcon}</span>}
         <input
           className={styles.input}
@@ -59,7 +73,11 @@ export function Input({
         )}
         {rightIcon && <span className={iconClass}>{rightIcon}</span>}
       </div>
-      {helperText && <p className={helperTextClass}>{helperText}</p>}
+      {helperText && (
+        <div className={styles.text}>
+          <p className={helperTextClass}>{helperText}</p>
+        </div>
+      )}
     </label>
   )
 }

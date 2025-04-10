@@ -1,8 +1,13 @@
-import { ListCardProps } from "./listCard.types"
-import styles from "./ListCard.module.scss"
 import clsx from "clsx"
+import styles from "./ListCard.module.scss"
 
-export function ListCard({ name, itemCount, averageBudget, acquiredPercentage }: ListCardProps) {
+type Props = {
+  title: string
+  itemCount: string
+  averageBudget: string
+  acquiredPercentage: number
+}
+export function ListCard({ title, itemCount, averageBudget, acquiredPercentage }: Props) {
   const onEdit = () => {
     alert("Edit list!")
   }
@@ -10,14 +15,14 @@ export function ListCard({ name, itemCount, averageBudget, acquiredPercentage }:
     alert("Delete list!")
   }
 
-  const editIconClass = clsx("material-symbols-outlined", "icon", styles["icon--edit"])
+  const editIconClass = clsx("material-symbols-outlined", styles["icon--edit"])
   const deleteIconClass = clsx("material-symbols-outlined", styles["icon--delete"])
 
   return (
-    <div className={styles.wrap}>
+    <div className={styles.container}>
       <div className={styles.header}>
-        <span>{name}</span>
-        <div className={styles.icons_wrap}>
+        <span className={styles.title}>{title}</span>
+        <div className={styles.icons_container}>
           <span
             className={editIconClass}
             onClick={onEdit}
@@ -32,12 +37,12 @@ export function ListCard({ name, itemCount, averageBudget, acquiredPercentage }:
           </span>
         </div>
       </div>
-      <p>Количество элементов: {itemCount}</p>
-      <p>Средний бюджет: {averageBudget}</p>
-      <div className="flex items-center gap-3 mt-2">
-        <div className={styles["progressbar-wrap"]}>
+      <p className={styles["body_text"]}>Количество элементов: {itemCount}</p>
+      <p className={styles["body_text"]}>Средний бюджет: {averageBudget}</p>
+      <div className={styles["progressbar_container"]}>
+        <div className={styles.progressbar}>
           <div
-            className={styles.progressbar}
+            className={styles.progress}
             style={{ width: `${acquiredPercentage}%` }}
           />
         </div>

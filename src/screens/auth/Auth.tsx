@@ -1,8 +1,8 @@
+import { useState } from "react"
+import { useMutation } from "@tanstack/react-query"
+import { SubmitHandler, useForm } from "react-hook-form"
 import { authService } from "@/services/auth.service"
 import { IAuthForm } from "@/types/auth.types"
-import { useMutation } from "@tanstack/react-query"
-import { useState } from "react"
-import { SubmitHandler, useForm } from "react-hook-form"
 
 export function Auth() {
   // const { register, handleSubmit, reset } = useForm<IAuthForm>({

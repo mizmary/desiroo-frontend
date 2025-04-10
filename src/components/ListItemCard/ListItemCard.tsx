@@ -1,11 +1,27 @@
-import { ListItemCardProps } from "./listItemCard.types"
-import styles from "./ListItemCard.module.scss"
-import clsx from "clsx"
-import { ItemTag } from "./ItemTag/ItemTag"
-import { Button } from "../Button/Button"
 import { useState } from "react"
+import clsx from "clsx"
+import { TPriceRange, TPriorityLevel } from "@/types"
+import { Button } from "../Button/Button"
+import { ItemTag } from "./ItemTag/ItemTag"
+import styles from "./ListItemCard.module.scss"
 
-export function ListItemCard({ isCompleted = false, listItem }: ListItemCardProps) {
+type Props = {
+  title: string
+  description?: string
+  link?: string
+  priority: TPriorityLevel
+  priceRange: TPriceRange
+  isCompleted?: boolean
+}
+
+export function ListItemCard({
+  isCompleted = false,
+  title,
+  description,
+  link,
+  priority,
+  priceRange
+}: Props) {
   const [completed, setCompleted] = useState(isCompleted)
 
   const handleClick = () => {
@@ -13,25 +29,25 @@ export function ListItemCard({ isCompleted = false, listItem }: ListItemCardProp
   }
 
   return (
-    <div className={styles.item}>
+    <div className={styles.container}>
       <div className={styles.header}>
         <span
-          className={clsx("material-symbols-outlined", styles.icon)}
+          className={clsx("material-symbols-outlined", styles.checkbox)}
           onClick={handleClick}
         >
           {completed ? "check_box" : "check_box_outline_blank"}
         </span>
-        <p className={clsx(styles.title, { [styles.completed]: completed })}>{listItem.title}</p>
+        <p className={clsx(styles.title, { [styles.completed]: completed })}>{title}</p>
       </div>
       <div className={styles.body}>
         <div className={styles.tags}>
           <ItemTag
             type="price"
-            value={listItem.priceRange}
+            value={priceRange}
           />
           <ItemTag
             type="priority"
-            value={listItem.priority}
+            value={priority}
           />
         </div>
         <Button

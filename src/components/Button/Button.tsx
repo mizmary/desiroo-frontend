@@ -1,6 +1,19 @@
 import clsx from "clsx"
-import { ButtonProps } from "./button.types"
 import styles from "./Button.module.scss"
+import { TColor, TSize, TVariant } from "@/types"
+import { ReactNode } from "react"
+
+type Props = {
+  size?: TSize
+  variant?: TVariant
+  color?: TColor
+  disabled?: boolean
+  leftIcon?: ReactNode
+  rightIcon?: ReactNode
+  className?: string
+  children: ReactNode
+  onClick?: () => void
+}
 
 export function Button({
   size = "medium",
@@ -11,13 +24,13 @@ export function Button({
   className,
   children,
   onClick,
-  isDisabled = false
-}: ButtonProps) {
+  disabled = false
+}: Props) {
   const buttonClass = clsx(
     styles.button,
     styles[`button--${size}`],
     styles[`button--${color}--${variant}`],
-    isDisabled && styles["button--disabled"],
+    disabled && styles["button--disabled"],
     className
   )
 
@@ -25,8 +38,8 @@ export function Button({
   return (
     <button
       className={buttonClass}
-      onClick={isDisabled ? undefined : onClick}
-      disabled={isDisabled}
+      onClick={disabled ? undefined : onClick}
+      disabled={disabled}
     >
       {leftIcon && <span className={buttonIconClass}>{leftIcon}</span>}
       {children}

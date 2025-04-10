@@ -1,25 +1,40 @@
-.item {
-  @apply bg-white w-full rounded-lg p-3 flex flex-col gap-2;
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  @include color(background-color, white);
+  @include radius(lg);
+  @include spacing(padding, md);
 
   .header {
-    @apply flex gap-2;
+    display: flex;
+    gap: 8px;
 
-    .icon {
-      @apply text-purple cursor-pointer select-none;
+    .checkbox {
+      @include color(color, purple);
+      cursor: pointer;
+      user-select: none;
     }
+
     .title {
-      @apply text-bodyM text-purple-950;
+      @include font(bodyM);
+      @include color(color, purple, 950);
+
+      &.completed {
+        text-decoration: line-through;
+      }
     }
   }
 
   .body {
-    @apply flex justify-between items-center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
     .tags {
-      @apply flex gap-2;
+      display: flex;
+      gap: 8px;
     }
   }
-}
-
-.completed {
-  text-decoration: line-through;
 }

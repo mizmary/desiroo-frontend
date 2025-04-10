@@ -1,34 +1,61 @@
-.inputWrapper {
-  @apply flex items-center border border-grey-200 rounded bg-white transition-colors duration-200 font-sans text-inputM text-grey-800 px-3 py-2 gap-2;
-
-  &:focus-within {
-    @apply border-purple;
-  }
-
-  &--disabled {
-    @apply bg-grey-100 text-grey-600;
-  }
-  &--error {
-    @apply border-state-danger;
-  }
-}
-
-.input {
-  @apply bg-transparent outline-none w-[100%];
-}
-
 .label {
-  @apply flex flex-col gap-1 text-bodyS;
-}
+  display: flex;
+  flex-direction: column;
+  @include spacing(gap, xs);
+  @include font(bodyS);
 
-.helperText {
-  @apply text-helper text-grey-600;
+  .text {
+    @include spacing(padding-left, sm);
 
-  &--error {
-    @apply text-state-danger;
+    .helperText {
+      @include font(helper);
+      @include color(color, grey, 600);
+
+      &--error {
+        @include color(color, state, danger);
+      }
+    }
   }
-}
 
-.icon {
-  @apply text-grey-400 text-[20px] cursor-pointer;
+  .container {
+    display: flex;
+    align-items: center;
+    border: 1px solid;
+    @include color(border-color, grey, 200);
+    @include radius(md);
+    @include color(background-color, white);
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+    font-family: $font-manrope;
+    @include color(color, grey, 800);
+    @include font(input);
+    @include spacing-axis(padding, sm, md);
+    @include spacing(gap, sm);
+
+    &:focus-within {
+      @include color(border-color, purple);
+    }
+
+    &.disabled {
+      @include color(background-color, grey, 100);
+      @include color(color, grey, 600);
+    }
+    &.error {
+      @include color(border-color, state, danger);
+    }
+
+    .icon {
+      @include color(color, grey, 400);
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .input {
+      background-color: transparent;
+      outline: 2px solid transparent;
+      outline-offset: 2px;
+      width: 100%;
+    }
+  }
 }
