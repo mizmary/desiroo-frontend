@@ -1,0 +1,24 @@
+@mixin font($key) {
+  font: map-get($fonts, $key);
+}
+//@include font(buttonM);
+
+@mixin color($property, $group, $shade: DEFAULT) {
+  #{$property}: map-get(map-get($colors, $group), $shade);
+}
+//@include color(background-color, peach, 50);
+
+@mixin spacing($property, $key) {
+  #{$property}: map-get($spacing, $key);
+}
+//@include spacing(padding, xl);
+
+@mixin spacing-axis($property, $vertical, $horizontal) {
+  #{$property}: map-get($spacing, $vertical) map-get($spacing, $horizontal);
+}
+//@include spacing-axis(padding, xl, sm);
+
+@mixin radius($key) {
+  border-radius: map-get($radius, $key);
+}
+//@include radius(lg);

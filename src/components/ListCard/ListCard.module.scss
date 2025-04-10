@@ -1,0 +1,72 @@
+.container {
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  @include color(background-color, white);
+  @include spacing(padding, md);
+  @include radius(lg);
+  @include font(bodyS);
+  @include color(color, grey, 400);
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 12px;
+    @include font(h4);
+    @include color(color, purple, 950);
+
+    .title {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .icons_container {
+      @apply text-grey-400  flex gap-2;
+      display: flex;
+      @include spacing(gap, sm);
+      @include color(color, grey, 400);
+
+      .icon {
+        &--edit {
+          @apply text-purple cursor-pointer;
+        }
+        &--delete {
+          @apply text-state-danger cursor-pointer;
+        }
+      }
+    }
+  }
+
+  .body_text {
+    font-family: $font-manrope;
+  }
+}
+
+.progressbar_container {
+  display: flex;
+  align-items: center;
+  @include spacing(gap, md);
+  @include spacing(margin-top, sm);
+
+  .progressbar {
+    position: relative;
+    width: 100%;
+    height: 4px;
+    @include color(background-color, purple, 50);
+    @include radius(full);
+
+    .progress {
+      position: absolute;
+      height: 4px;
+      @include color(background-color, purple);
+      @include radius(full);
+    }
+  }
+  .progressbar-text {
+    font-family: $font-manrope;
+    @include color(color, grey, 800);
+  }
+}

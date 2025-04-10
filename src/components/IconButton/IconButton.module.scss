@@ -1,0 +1,112 @@
+.iconButton {
+  display: flex;
+  align-items: center;
+  transition-property: all;
+  transition-duration: 200ms;
+  cursor: pointer;
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &--small {
+    @include font(buttonS);
+    @include radius(sm);
+    @include spacing-axis(padding, sm, md);
+
+    .icon {
+      font-size: 14px;
+    }
+  }
+  &--medium {
+    @include font(buttonM);
+    @include radius(md);
+    @include spacing-axis(padding, sm, lg);
+
+    .icon {
+      font-size: 16px;
+    }
+  }
+  &--large {
+    @include font(buttonL);
+    @include radius(lg);
+    @include spacing-axis(padding, md, lg);
+    .icon {
+      font-size: 16px;
+    }
+  }
+
+  &--small {
+    @include radius(sm);
+    padding: 10px;
+    .icon {
+      font-size: 16px;
+    }
+  }
+  &--medium {
+    @include radius(md);
+    padding: 10px;
+    .icon {
+      font-size: 24px;
+    }
+  }
+  &--large {
+    border-radius: 10px;
+    padding: 8px;
+    .icon {
+      font-size: 32px;
+    }
+  }
+
+  &--purple {
+    &--primary {
+      @include color(background-color, purple);
+      @include color(color, white);
+      &:hover {
+        background-color: #5838b1;
+      }
+    }
+    &--secondary {
+      background: none;
+      border: 1px solid;
+      @include color(border-color, purple);
+      @include color(color, purple);
+
+      &:hover {
+        background-color: rgba(88, 56, 177, 0.1);
+      }
+    }
+    &--tertiary {
+      background: none;
+      @include color(color, purple);
+      &:hover {
+        background-color: rgba(88, 56, 177, 0.1);
+      }
+    }
+  }
+  &--white {
+    &--primary {
+      @include color(background-color, white);
+      @include color(color, purple);
+      &:hover {
+        @include color(color, purple, 100);
+      }
+    }
+    &--secondary {
+      background: none;
+      border: 1px solid;
+      @include color(border-color, purple);
+      @include color(color, purple);
+      &:hover {
+        background-color: rgba(88, 56, 177, 0.1);
+      }
+    }
+    &--tertiary {
+      background: none;
+      @include color(color, purple);
+      &:hover {
+        background-color: rgba(88, 56, 177, 0.1);
+      }
+    }
+  }
+}

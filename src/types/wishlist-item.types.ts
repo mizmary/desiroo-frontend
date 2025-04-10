@@ -18,6 +18,8 @@ export interface IWishlistItemResponse extends IBase {
   title: string
   description?: string
   link?: string
+  priority: EnumPriority
+  priceRange: EnumPriceRange
 
   deletedAt?: string
 }

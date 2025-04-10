@@ -1,0 +1,133 @@
+.button {
+  display: flex;
+  align-items: center;
+  font-family: $font-manrope;
+  transition: all 0.2s;
+  gap: 8px;
+  width: fit-content;
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &--small {
+    @include font(buttonS);
+    @include radius(sm);
+    @include spacing-axis(padding, sm, md);
+
+    .icon {
+      font-size: 14px;
+    }
+  }
+
+  &--medium {
+    @include font(buttonM);
+    @include radius(md);
+    @include spacing-axis(padding, sm, lg);
+
+    .icon {
+      font-size: 16px;
+    }
+  }
+
+  &--large {
+    @include font(buttonL);
+    @include radius(lg);
+    @include spacing-axis(padding, md, lg);
+    gap: 12px;
+
+    .icon {
+      font-size: 20px;
+    }
+  }
+
+  &--purple {
+    &--primary {
+      @include color(background-color, purple);
+      @include color(color, white);
+
+      &:hover {
+        background-color: #5838b1;
+      }
+    }
+
+    &--secondary {
+      background: none;
+      border: 1px solid map-get(map-get($colors, purple), DEFAULT);
+      @include color(color, purple);
+
+      &:hover {
+        background-color: rgba(88, 56, 177, 0.1);
+      }
+    }
+
+    &--tertiary {
+      background: none;
+      @include color(color, purple);
+
+      &:hover {
+        background-color: rgba(88, 56, 177, 0.1);
+      }
+    }
+  }
+
+  &--peach {
+    &--primary {
+      @include color(background-color, peach);
+      @include color(color, white);
+
+      &:hover {
+        background-color: #d77437;
+      }
+    }
+
+    &--secondary {
+      background: none;
+      border: 1px solid map-get(map-get($colors, peach), DEFAULT);
+      @include color(color, peach);
+
+      &:hover {
+        background-color: rgba(215, 116, 55, 0.1);
+      }
+    }
+
+    &--tertiary {
+      background: none;
+      @include color(color, peach);
+
+      &:hover {
+        background-color: rgba(215, 116, 55, 0.1);
+      }
+    }
+  }
+
+  &--danger {
+    &--primary {
+      @include color(background-color, state, danger);
+      @include color(color, white);
+
+      &:hover {
+        background-color: #c14141;
+      }
+    }
+
+    &--secondary {
+      background: none;
+      border: 1px solid map-get(map-get($colors, state), danger);
+      @include color(color, state, danger);
+
+      &:hover {
+        background-color: rgba(193, 65, 65, 0.1);
+      }
+    }
+
+    &--tertiary {
+      background: none;
+      @include color(color, state, danger);
+
+      &:hover {
+        background-color: rgba(193, 65, 65, 0.1);
+      }
+    }
+  }
+}
