@@ -1,0 +1,44 @@
+.tag {
+  @apply inline-block self-start text-tagS px-2 py-1 items-center rounded-sm text-center;
+
+  &--priority {
+    @apply w-[144px];
+
+    &--LOW {
+      background: rgba(51, 255, 197, 0.15);
+      color: rgba(0, 51, 37, 0.5);
+    }
+    &--MEDIUM {
+      background: rgba(246, 215, 60, 0.15);
+      color: rgba(146, 123, 7, 0.75);
+    }
+    &--HIGH {
+      background: rgba(187, 119, 177, 0.25);
+      color: rgba(68, 34, 63, 0.5);
+    }
+  }
+  &--price {
+    @apply w-[150px];
+
+    &--UpTo1000 {
+      background: rgba(51, 255, 197, 0.15);
+      color: rgba(0, 51, 37, 0.5);
+    }
+    &--From1000To5000 {
+      background: rgba(246, 215, 60, 0.15);
+      color: rgba(146, 123, 7, 0.75);
+    }
+    &--From5000To10000 {
+      background: rgba(255, 129, 51, 0.15);
+      color: rgba(153, 59, 0, 0.5);
+    }
+    &--From10000To50000 {
+      background: rgba(187, 119, 177, 0.25);
+      color: rgba(68, 34, 63, 0.5);
+    }
+    &--Over50000 {
+      background: rgba(120, 83, 223, 0.15);
+      color: rgba(52, 24, 129, 0.5);
+    }
+  }
+}

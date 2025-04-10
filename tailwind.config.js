@@ -42,7 +42,8 @@ export default {
         helper: [
           "12px",
           { fontFamily: "Manrope", fontWeight: "300", lineHeight: "150%", letterSpacing: "3%" }
-        ]
+        ],
+        tagS: ["12px", { fontFamily: "Manrope", fontWeight: "500", lineHeight: "135%" }]
       },
       backgroundImage: {
         gradient: "linear-gradient(122.11deg, #FFA166 8.98%, #7853DF 70.92%)"

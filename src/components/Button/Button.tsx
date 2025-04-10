@@ -20,15 +20,17 @@ export function Button({
     isDisabled && styles["button--disabled"],
     className
   )
+
+  const buttonIconClass = clsx("material-symbols-outlined", styles.icon)
   return (
     <button
       className={buttonClass}
       onClick={isDisabled ? undefined : onClick}
       disabled={isDisabled}
     >
-      {leftIcon && <span className="button__icon">{leftIcon}</span>}
+      {leftIcon && <span className={buttonIconClass}>{leftIcon}</span>}
       {children}
-      {rightIcon && <span className="button__icon">{rightIcon}</span>}
+      {rightIcon && <span className={buttonIconClass}>{rightIcon}</span>}
     </button>
   )
 }
