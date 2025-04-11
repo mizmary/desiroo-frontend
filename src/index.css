@@ -1,5 +1,9 @@
 body {
   min-height: 100vh;
   margin: 0;
-  background-image: linear-gradient(122.11deg, #ffa166 8.98%, #7853df 70.92%);
+  background-image: linear-gradient(
+    122.11deg,
+    rgba(255, 161, 102) 8.98%,
+    rgba(120, 83, 223) 70.92%
+  );
 }

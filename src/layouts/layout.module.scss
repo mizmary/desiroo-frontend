@@ -1,0 +1,18 @@
+.layout {
+  display: flex;
+  height: 100vh;
+  padding: 8px;
+  gap: 8px;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    .main {
+      padding: 1rem;
+      overflow: auto;
+      gap: 8px;
+    }
+  }
+}
