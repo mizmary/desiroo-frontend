@@ -15,13 +15,19 @@ export enum EnumPriority {
 }
 
 export interface IWishlistItemResponse extends IBase {
+  deletedAt?: string
+  wishlistID: string
   title: string
   description?: string
   link?: string
-  priority: EnumPriority
   priceRange: EnumPriceRange
-
-  deletedAt?: string
+  priority: EnumPriority
+  isCompleted: boolean
+  imagesURL: string[]
+  isReserved: boolean
+  reserveUserID?: string
 }
 
-export type TypeWishlistItemFormState = Partial<Omit<IWishlistItemResponse, "id" | "updatedAt">>
+export type TypeWishlistItemFormState = Partial<
+  Omit<IWishlistItemResponse, "id" | "updatedAt" | "deletedAt">
+>

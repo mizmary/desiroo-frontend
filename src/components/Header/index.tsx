@@ -1,11 +1,11 @@
 import clsx from "clsx"
-import styles from "./Header.module.scss"
+import styles from "./main.module.scss"
 
 type Props = {
   title: string
 }
 
-export function Header({ title }: Props) {
+export const Header = ({ title }: Props) => {
   return (
     <div className={styles.container}>
       <p className={styles.title}>{title}</p>

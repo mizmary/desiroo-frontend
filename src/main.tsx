@@ -5,32 +5,41 @@ import "./index.css"
 import { Auth } from "./screens/auth/Auth"
 import { Layout } from "./layouts/layout"
 import App from "./App"
+import { Providers } from "./providers"
+import { Toaster } from "sonner"
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <BrowserRouter>
-    <Routes>
-      <Route
-        path={pageConfig.auth}
-        element={<Auth />}
+  <Providers>
+    <BrowserRouter>
+      <Toaster
+        theme="light"
+        position="bottom-center"
+        duration={1500}
       />
-      <Route element={<Layout />}>
+      <Routes>
         <Route
-          path={pageConfig.profile}
-          element={<App />}
+          path={pageConfig.auth}
+          element={<Auth />}
         />
-        <Route
-          path={pageConfig.lists}
-          element={<App />}
-        />
-        <Route
-          path={pageConfig.subscriptions}
-          element={<App />}
-        />
-        <Route
-          path={pageConfig.achievements}
-          element={<App />}
-        />
-      </Route>
-    </Routes>
-  </BrowserRouter>
+        <Route element={<Layout />}>
+          <Route
+            path={pageConfig.profile}
+            element={<App />}
+          />
+          <Route
+            path={pageConfig.lists}
+            element={<App />}
+          />
+          <Route
+            path={pageConfig.subscriptions}
+            element={<App />}
+          />
+          <Route
+            path={pageConfig.achievements}
+            element={<App />}
+          />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  </Providers>
 )

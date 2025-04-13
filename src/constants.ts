@@ -1,3 +1,14 @@
+export const API_URL = "http://localhost:4200/api"
+
+export const ROUTS = {
+  main: "/",
+  auth: "/auth",
+  profile: "/profile",
+  lists: "/lists",
+  achievements: "/achievements",
+  subscriptions: "/subscriptions"
+}
+
 export const ROUTES_TITLES: Record<string, string> = {
   "/": "Главная",
   "/auth": "Регистрация",
@@ -11,21 +22,21 @@ export const SIDEBAR_OPTIONS = [
   {
     title: "Профиль",
     icon: "account_circle",
-    route: "/profile"
+    route: ROUTS.profile
   },
   {
     title: "Мои списки",
     icon: "stacks",
-    route: "/lists"
+    route: ROUTS.lists
   },
   {
     title: "Подписки",
     icon: "group",
-    route: "/subscriptions"
+    route: ROUTS.subscriptions
   },
   {
     title: "Мои достижения",
     icon: "editor_choice",
-    route: "/achievements"
+    route: ROUTS.achievements
   }
 ]

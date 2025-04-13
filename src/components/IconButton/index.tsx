@@ -1,6 +1,6 @@
 import clsx from "clsx"
-import styles from "./IconButton.module.scss"
 import { ReactNode } from "react"
+import styles from "./main.module.scss"
 import { TColor, TSize, TVariant } from "@/types"
 
 type Props = {
@@ -13,7 +13,7 @@ type Props = {
   onClick?: () => void
 }
 
-export function IconButton({
+export const IconButton = ({
   size = "medium",
   variant = "primary",
   color = "purple",
@@ -21,7 +21,7 @@ export function IconButton({
   className,
   onClick,
   isDisabled = false
-}: Props) {
+}: Props) => {
   const iconButtonClass = clsx(
     className,
     styles.iconButton,

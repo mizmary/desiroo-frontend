@@ -1,6 +1,6 @@
 import clsx from "clsx"
+import styles from "./main.module.scss"
 import { TPriceRange, TPriorityLevel } from "@/types"
-import styles from "./ItemTag.module.scss"
 
 type TPriceTagProps = {
   type: "price"
@@ -14,7 +14,7 @@ type TPriorityTagProps = {
 
 type Props = TPriceTagProps | TPriorityTagProps
 
-export function ItemTag({ type, value }: Props) {
+export const ItemTag = ({ type, value }: Props) => {
   const tagClass = clsx(styles.tag, styles[`tag--${type}--${value}`])
 
   const tagText = {

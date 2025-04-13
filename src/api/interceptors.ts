@@ -25,7 +25,7 @@ axiosWithAuth.interceptors.request.use((config) => {
   return config
 })
 
-axiosWithAuth.interceptors.request.use(
+axiosWithAuth.interceptors.response.use(
   (config) => config,
   async (error) => {
     const originalRequest = error.config

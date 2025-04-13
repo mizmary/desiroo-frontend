@@ -1,9 +1,9 @@
-import { useState } from "react"
 import clsx from "clsx"
+import { useState } from "react"
+import styles from "./main.module.scss"
+import { Button } from "@/components/Button"
 import { TPriceRange, TPriorityLevel } from "@/types"
-import { Button } from "../Button/Button"
-import { ItemTag } from "./ItemTag/ItemTag"
-import styles from "./ListItemCard.module.scss"
+import { ItemTag } from "@components/ListItemCard/ItemTag"
 
 type Props = {
   title: string
@@ -14,14 +14,14 @@ type Props = {
   isCompleted?: boolean
 }
 
-export function ListItemCard({
+export const ListItemCard = ({
   isCompleted = false,
   title,
   description,
   link,
   priority,
   priceRange
-}: Props) {
+}: Props) => {
   const [completed, setCompleted] = useState(isCompleted)
 
   const handleClick = () => {

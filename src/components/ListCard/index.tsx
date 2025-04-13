@@ -1,5 +1,5 @@
 import clsx from "clsx"
-import styles from "./ListCard.module.scss"
+import styles from "./main.module.scss"
 
 type Props = {
   title: string
@@ -7,7 +7,7 @@ type Props = {
   averageBudget: string
   acquiredPercentage: number
 }
-export function ListCard({ title, itemCount, averageBudget, acquiredPercentage }: Props) {
+export const ListCard = ({ title, itemCount, averageBudget, acquiredPercentage }: Props) => {
   const onEdit = () => {
     alert("Edit list!")
   }

@@ -1,7 +1,7 @@
-import { Button } from "@components/Button/Button"
-import styles from "./Sidebar.module.scss"
 import Logo from "@assets/Logo.svg"
+import styles from "./main.module.scss"
 import { useNavigate } from "react-router"
+import { Button } from "@/components/Button"
 
 type TMenuOption = {
   title: string
@@ -13,7 +13,7 @@ type Props = {
   options: TMenuOption[]
 }
 
-export function Sidebar({ options }: Props) {
+export const Sidebar = ({ options }: Props) => {
   const navigate = useNavigate()
   return (
     <div className={styles.container}>

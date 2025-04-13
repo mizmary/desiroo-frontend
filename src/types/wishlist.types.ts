@@ -7,12 +7,14 @@ export enum EnumAccessLevel {
 }
 
 export interface IWishlistResponse extends IBase {
+  deletedAt?: string
+  userID: string
   title: string
   description?: string
   isGroupList: boolean
   accessLevel: EnumAccessLevel
-
-  deletedAt?: string
 }
 
-export type TypeWishlistFormState = Partial<Omit<IWishlistResponse, "id" | "updatedAt">>
+export type TypeWishlistFormState = Partial<
+  Omit<IWishlistResponse, "id" | "updatedAt" | "deletedAt">
+>
