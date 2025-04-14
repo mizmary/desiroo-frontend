@@ -1,6 +1,7 @@
 class PageConfig {
   public readonly home = "/"
   public readonly auth = "/auth"
+  public readonly login = "/login"
   public readonly lists = "/lists"
   public readonly profile = "/profile"
   public readonly achievements = "/achievements"

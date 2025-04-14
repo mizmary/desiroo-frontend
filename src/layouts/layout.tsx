@@ -1,8 +1,8 @@
 import styles from "./layout.module.scss"
 import { Outlet, useLocation } from "react-router"
-import { Header } from "@/components/Header/Header"
-import { Sidebar } from "@/components/Sidebar/Sidebar"
-import { ROUTES_TITLES, SIDEBAR_OPTIONS } from "../constants"
+import { Header } from "@/components/Header"
+import { Sidebar } from "@/components/Sidebar"
+import { ROUTES_TITLES, SIDEBAR_OPTIONS } from "@/constants"
 
 export const Layout = () => {
   const location = useLocation()

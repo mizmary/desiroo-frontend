@@ -3,6 +3,7 @@
   flex-direction: column;
   @include spacing(gap, xs);
   @include font(bodyS);
+  width: 100%;
 
   .text {
     @include spacing(padding-left, sm);

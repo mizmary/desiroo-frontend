@@ -1,6 +1,6 @@
 import clsx from "clsx"
-import styles from "./Input.module.scss"
-import React, { forwardRef, useState } from "react"
+import styles from "./main.module.scss"
+import { forwardRef } from "react"
 
 type Props = {
   error?: boolean
@@ -25,12 +25,11 @@ export const Input = forwardRef<HTMLInputElement, Props>(
       rightIcon,
       error,
       disabled,
-      className
+      className,
+      ...rest
     },
     ref
   ) => {
-    const [value, setValue] = useState("")
-
     const inputContainerClass = clsx(
       styles.container,
       disabled && styles.disabled,
@@ -41,14 +40,6 @@ export const Input = forwardRef<HTMLInputElement, Props>(
     const helperTextClass = clsx(styles.helperText, error && styles["helperText--error"])
 
     const iconClass = clsx(styles.icon, "material-symbols-outlined")
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      setValue(e.target.value)
-    }
-
-    const handleClear = () => {
-      setValue("")
-    }
 
     return (
       <label className={styles.label}>
@@ -65,17 +56,8 @@ export const Input = forwardRef<HTMLInputElement, Props>(
             type={type}
             disabled={disabled}
             placeholder={placeholder}
-            value={value}
-            onChange={handleChange}
+            {...rest}
           />
-          {value && !disabled && (
-            <span
-              className={iconClass}
-              onClick={handleClear}
-            >
-              close
-            </span>
-          )}
           {rightIcon && <span className={iconClass}>{rightIcon}</span>}
         </div>
         {helperText && (

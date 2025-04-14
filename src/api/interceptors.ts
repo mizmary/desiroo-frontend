@@ -3,10 +3,8 @@ import axios, { CreateAxiosDefaults } from "axios"
 import { getAccessToken, removeFromStorage } from "@/services/auth-token.service"
 import { authService } from "@/services/auth.service"
 
-const BaseUrl: string = import.meta.env.VITE_BASEURL || ""
-
 const options: CreateAxiosDefaults = {
-  baseURL: BaseUrl,
+  baseURL: "http://localhost:4200/api",
   headers: {
     "Content-Type": "application/json"
   },

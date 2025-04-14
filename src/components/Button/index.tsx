@@ -1,7 +1,7 @@
 import clsx from "clsx"
-import { ReactNode } from "react"
 import styles from "./main.module.scss"
 import { TColor, TSize, TVariant } from "@/types"
+import { PropsWithChildren, ReactNode } from "react"
 
 type Props = {
   size?: TSize
@@ -25,7 +25,7 @@ export const Button = ({
   children,
   onClick,
   disabled = false
-}: Props) => {
+}: PropsWithChildren<Props>) => {
   const buttonClass = clsx(
     styles.button,
     styles[`button--${size}`],

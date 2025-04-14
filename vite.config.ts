@@ -24,5 +24,8 @@ export default defineConfig({
         additionalData: `@import "@styles/variables"; @import "@styles/mixins";`
       }
     }
+  },
+  server: {
+    port: 6688
   }
 })

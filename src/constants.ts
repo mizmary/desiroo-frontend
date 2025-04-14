@@ -3,6 +3,7 @@ export const API_URL = "http://localhost:4200/api"
 export const ROUTS = {
   main: "/",
   auth: "/auth",
+  login: "/login",
   profile: "/profile",
   lists: "/lists",
   achievements: "/achievements",
