@@ -1,8 +1,10 @@
 .container {
-  width: 240px;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  border: 1px solid;
   @include color(background-color, white);
+  @include color(border-color, grey, 200);
   @include spacing(padding, md);
   @include radius(lg);
   @include font(bodyS);
@@ -24,17 +26,17 @@
     }
 
     .icons_container {
-      @apply text-grey-400  flex gap-2;
       display: flex;
       @include spacing(gap, sm);
       @include color(color, grey, 400);
 
       .icon {
+        cursor: pointer;
         &--edit {
-          @apply text-purple cursor-pointer;
+          @include color(color, purple);
         }
         &--delete {
-          @apply text-state-danger cursor-pointer;
+          @include color(color, state, danger);
         }
       }
     }

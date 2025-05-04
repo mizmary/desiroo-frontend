@@ -38,21 +38,21 @@
 
   &--small {
     @include radius(sm);
-    padding: 10px;
+    padding: 1rem;
     .icon {
       font-size: 16px;
     }
   }
   &--medium {
     @include radius(md);
-    padding: 10px;
+    padding: 1rem;
     .icon {
       font-size: 24px;
     }
   }
   &--large {
-    border-radius: 10px;
-    padding: 8px;
+    border-radius: 1rem;
+    padding: 0.8rem;
     .icon {
       font-size: 32px;
     }

@@ -1,9 +1,10 @@
 import clsx from "clsx"
 import styles from "./main.module.scss"
 import { TColor, TSize, TVariant } from "@/types"
-import { PropsWithChildren, ReactNode } from "react"
+import { ButtonHTMLAttributes, PropsWithChildren, ReactNode } from "react"
 
 type Props = {
+  type?: ButtonHTMLAttributes<HTMLButtonElement>["type"]
   size?: TSize
   variant?: TVariant
   color?: TColor
@@ -19,6 +20,7 @@ export const Button = ({
   size = "medium",
   variant = "primary",
   color = "purple",
+  type,
   leftIcon,
   rightIcon,
   className,
@@ -40,6 +42,7 @@ export const Button = ({
       className={buttonClass}
       onClick={disabled ? undefined : onClick}
       disabled={disabled}
+      type={type}
     >
       {leftIcon && <span className={buttonIconClass}>{leftIcon}</span>}
       {children}

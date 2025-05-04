@@ -8,7 +8,7 @@ import { useMutation } from "@tanstack/react-query"
 import { authService } from "@/services/auth.service"
 import { SubmitHandler, useForm } from "react-hook-form"
 import { useNavigate } from "react-router"
-import { ROUTS } from "@/constants"
+import { QUERY_KEY, ROUTS } from "@/constants"
 import { AuthForm } from "./AuthForm.tsx"
 import clsx from "clsx"
 
@@ -17,17 +17,18 @@ export function Auth() {
     mode: "onChange"
   })
 
-  const [isLoginForm, setIsLoginForm] = useState(false)
+  const [isLoginForm, setIsLoginForm] = useState(true)
 
   const navigate = useNavigate()
 
   const { mutate } = useMutation({
-    mutationKey: ["auth"],
+    mutationKey: [QUERY_KEY.auth],
     mutationFn: (data: IAuthForm) => authService.main(isLoginForm ? "login" : "register", data),
-    onSuccess() {
+    onSuccess(data) {
+      localStorage.setItem("user", JSON.stringify(data.data.user))
       toast.success("Successfully login")
       reset()
-      navigate(ROUTS.profile)
+      navigate(ROUTS.lists)
     }
   })
 

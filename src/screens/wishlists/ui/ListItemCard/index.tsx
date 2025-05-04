@@ -3,7 +3,7 @@ import { useState } from "react"
 import styles from "./main.module.scss"
 import { Button } from "@/components/Button"
 import { TPriceRange, TPriorityLevel } from "@/types"
-import { ItemTag } from "@components/ListItemCard/ItemTag"
+import { ItemTag } from "./ItemTag"
 
 type Props = {
   title: string

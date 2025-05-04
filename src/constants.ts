@@ -8,7 +8,7 @@ export const ROUTS = {
   lists: "/lists",
   achievements: "/achievements",
   subscriptions: "/subscriptions"
-}
+} as const
 
 export const ROUTES_TITLES: Record<string, string> = {
   "/": "Главная",
@@ -17,27 +17,9 @@ export const ROUTES_TITLES: Record<string, string> = {
   "/lists": "Мои списки",
   "/achievements": "Мои достижения",
   "/subscriptions": "Подписки"
-}
+} as const
 
-export const SIDEBAR_OPTIONS = [
-  {
-    title: "Профиль",
-    icon: "account_circle",
-    route: ROUTS.profile
-  },
-  {
-    title: "Мои списки",
-    icon: "stacks",
-    route: ROUTS.lists
-  },
-  {
-    title: "Подписки",
-    icon: "group",
-    route: ROUTS.subscriptions
-  },
-  {
-    title: "Мои достижения",
-    icon: "editor_choice",
-    route: ROUTS.achievements
-  }
-]
+export const QUERY_KEY = {
+  auth: "auth",
+  wishlists: "wishlists"
+} as const

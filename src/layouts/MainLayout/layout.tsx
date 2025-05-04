@@ -1,10 +1,11 @@
 import styles from "./layout.module.scss"
 import { Outlet, useLocation } from "react-router"
-import { Header } from "@/components/Header"
-import { Sidebar } from "@/components/Sidebar"
-import { ROUTES_TITLES, SIDEBAR_OPTIONS } from "@/constants"
+import { Header } from "@/layouts/MainLayout/ui/Header"
+import { Sidebar } from "@/layouts/MainLayout/ui/Sidebar"
+import { ROUTES_TITLES } from "@/constants"
+import { SIDEBAR_OPTIONS } from "./constants"
 
-export const Layout = () => {
+export const MainLayout = () => {
   const location = useLocation()
 
   const title = ROUTES_TITLES[location.pathname] || "Desiroo"
