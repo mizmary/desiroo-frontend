@@ -1,0 +1,23 @@
+.modal {
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    &-title {
+      @include font(h4);
+      text-align: center;
+    }
+
+    &-description {
+      @include font(bodyM);
+      text-align: center;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: row;
+    gap: 1.2rem;
+    justify-content: center;
+  }
+}

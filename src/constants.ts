@@ -21,5 +21,17 @@ export const ROUTES_TITLES: Record<string, string> = {
 
 export const QUERY_KEY = {
   auth: "auth",
-  wishlists: "wishlists"
+  wishlist: "wishlist",
+  wishlists: "wishlists",
+  wishlistItem: "wishlistItem",
+  wishlistItems: "wishlistItems"
 } as const
+
+export const MUTATION_KEY = {
+  createWishlist: "createWishlist",
+  updateWishlist: "updateWishlist",
+  deleteWishlist: "deleteWishlist",
+  createWishlistItem: "createWishlistItem",
+  updateWishlistItem: "updateWishlistItem",
+  deleteWishlistItem: "deleteWishlistItem"
+}

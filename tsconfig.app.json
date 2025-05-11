@@ -28,10 +28,12 @@
       "@/*": ["src/*"],
       "@assets/*": ["src/assets/*"],
       "@components/*": ["src/components/*"],
-      "@services/*": ["src/services/*"],
+      "@services/*": ["src/app/auth/api/*"],
       "@api/*": ["src/api/*"],
       "@types/*": ["src/types/*"],
-      "@config/*": ["src/config/*"]
+      "@config/*": ["src/config/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@app/*": ["src/app/*"]
     }
   },
   "include": ["src"]

@@ -1,4 +1,4 @@
-import { IUser } from "@/types/auth.types"
+import { IUser } from "@/app/auth/types"
 
 type UserRole = "owner" | "guest"
 

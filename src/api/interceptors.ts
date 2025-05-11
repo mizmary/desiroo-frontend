@@ -1,7 +1,8 @@
 import { errorCatch } from "@api/error"
 import axios, { CreateAxiosDefaults } from "axios"
-import { getAccessToken, removeFromStorage } from "@/services/auth-token.service"
-import { authService } from "@/services/auth.service"
+
+import { getAccessToken, removeFromStorage } from "@/app/auth/api/auth-token.api"
+import { authService } from "@/app/auth/api/auth.api"
 
 const options: CreateAxiosDefaults = {
   baseURL: "http://localhost:4200/api",

@@ -1,6 +1,8 @@
 import Logo from "@assets/Logo.svg"
-import styles from "./main.module.scss"
 import { useNavigate } from "react-router"
+
+import styles from "./main.module.scss"
+
 import { Button } from "@/components/Button"
 
 type TMenuOption = {

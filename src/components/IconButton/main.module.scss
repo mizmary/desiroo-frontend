@@ -109,4 +109,29 @@
       }
     }
   }
+  &--danger {
+    &--primary {
+      @include color(background-color, state, danger);
+      @include color(color, white);
+      &:hover {
+        background-color: #c14141;
+      }
+    }
+    &--secondary {
+      background: none;
+      border: 1px solid map-get(map-get($colors, state), danger);
+      @include color(color, state, danger);
+      &:hover {
+        background-color: rgba(193, 65, 65, 0.1);
+      }
+    }
+    &--tertiary {
+      background: none;
+      @include color(color, state, danger);
+
+      &:hover {
+        background-color: rgba(193, 65, 65, 0.1);
+      }
+    }
+  }
 }

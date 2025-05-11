@@ -1,5 +1,7 @@
 import clsx from "clsx"
+
 import styles from "./main.module.scss"
+
 import { useUser } from "@/hooks/useUser"
 
 type Props = {

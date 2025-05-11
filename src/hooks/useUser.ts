@@ -1,9 +1,10 @@
-import { ROUTS } from "@/constants"
-import { authService } from "@/services/auth.service"
 import { useMutation } from "@tanstack/react-query"
 import { useEffect } from "react"
 import { useNavigate } from "react-router"
 import { toast } from "sonner"
+
+import { authService } from "@/app/auth/api/auth.api"
+import { ROUTS } from "@/constants"
 
 export const useUser = () => {
   const navigate = useNavigate()

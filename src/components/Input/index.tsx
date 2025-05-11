@@ -1,10 +1,12 @@
 import clsx from "clsx"
-import styles from "./main.module.scss"
 import { forwardRef } from "react"
+
+import styles from "./main.module.scss"
 
 type Props = {
   error?: boolean
   disabled?: boolean
+  readOnly?: boolean
   leftIcon?: string
   rightIcon?: string
   type?: string
@@ -26,6 +28,7 @@ export const Input = forwardRef<HTMLInputElement, Props>(
       error,
       disabled,
       className,
+      readOnly,
       ...rest
     },
     ref
@@ -55,6 +58,7 @@ export const Input = forwardRef<HTMLInputElement, Props>(
             className={styles.input}
             type={type}
             disabled={disabled}
+            readOnly={readOnly}
             placeholder={placeholder}
             {...rest}
           />

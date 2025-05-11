@@ -15,7 +15,10 @@ export default defineConfig({
       "@types": path.resolve(__dirname, "./src/types"),
       "@config": path.resolve(__dirname, "./src/config"),
       "@hooks": path.resolve(__dirname, "./src/hooks"),
-      "@styles": path.resolve(__dirname, "./src/styles")
+      "@styles": path.resolve(__dirname, "./src/styles"),
+      "@layouts": path.resolve(__dirname, "./src/layouts"),
+      "@app": path.resolve(__dirname, "./src/app"),
+      "@constants": path.resolve(__dirname, "./src/constants.ts")
     }
   },
   css: {

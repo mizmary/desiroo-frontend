@@ -1,0 +1,49 @@
+.tag {
+  display: inline-block;
+  align-items: center;
+  text-align: center;
+  align-self: flex-start;
+  @include font(tagS);
+  @include spacing-axis(padding, xs, sm);
+  @include radius(sm);
+
+  &--priority {
+    width: 144px;
+    &-LOW {
+      background: rgba(51, 255, 197, 0.25);
+      color: rgba(0, 51, 37, 0.6);
+    }
+    &-MEDIUM {
+      background: rgba(246, 215, 60, 0.25);
+      color: rgba(146, 123, 7, 0.75);
+    }
+    &-HIGH {
+      background: rgba(187, 119, 177, 0.35);
+      color: rgba(68, 34, 63, 0.6);
+    }
+  }
+  &--price {
+    width: 120px;
+
+    &-UpTo1000 {
+      background: rgba(51, 255, 197, 0.25);
+      color: rgba(0, 51, 37, 0.6);
+    }
+    &-From1000To5000 {
+      background: rgba(246, 215, 60, 0.25);
+      color: rgba(146, 123, 7, 0.75);
+    }
+    &-From5000To10000 {
+      background: rgba(255, 129, 51, 0.3);
+      color: rgba(153, 59, 0, 0.6);
+    }
+    &-From10000To50000 {
+      background: rgba(187, 119, 177, 0.35);
+      color: rgba(68, 34, 63, 0.6);
+    }
+    &-Over50000 {
+      background: rgba(120, 83, 223, 0.25);
+      color: rgba(52, 24, 129, 0.6);
+    }
+  }
+}

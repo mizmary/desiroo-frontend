@@ -1,7 +1,9 @@
 import clsx from "clsx"
-import styles from "./main.module.scss"
-import { TColor, TSize, TVariant } from "@/types"
 import { ButtonHTMLAttributes, PropsWithChildren, ReactNode } from "react"
+
+import styles from "./main.module.scss"
+
+import { TColor, TSize, TVariant } from "@/types"
 
 type Props = {
   type?: ButtonHTMLAttributes<HTMLButtonElement>["type"]
@@ -9,8 +11,8 @@ type Props = {
   variant?: TVariant
   color?: TColor
   disabled?: boolean
-  leftIcon?: ReactNode
-  rightIcon?: ReactNode
+  leftIcon?: string
+  rightIcon?: string
   className?: string
   children: ReactNode
   onClick?: () => void

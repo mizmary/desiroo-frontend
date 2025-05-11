@@ -1,6 +1,8 @@
 import clsx from "clsx"
 import { ReactNode } from "react"
+
 import styles from "./main.module.scss"
+
 import { TColor, TSize, TVariant } from "@/types"
 
 type Props = {
@@ -29,7 +31,6 @@ export const IconButton = ({
     styles[`iconButton--${color}--${variant}`],
     isDisabled && styles["iconButton--disabled"]
   )
-  console.log(iconButtonClass)
 
   const iconClass = clsx("material-symbols-outlined", styles.icon)
 
