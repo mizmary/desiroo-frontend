@@ -15,6 +15,17 @@ class WishlistService {
     return response
   }
 
+  async getWishlistsByUserId(userId: string) {
+    const response = await axiosWithAuth.get<TWishlist[]>(`${this.BASE_URL}/public/${userId}`)
+    return response
+  }
+  async getWishlistByUserId({ userId, listId }: { userId: string; listId: string }) {
+    const response = await axiosWithAuth.get<TWishlist>(
+      `${this.BASE_URL}/public/${userId}/${listId}`
+    )
+    return response
+  }
+
   async createWishlist(data: TWishlistForm) {
     const response = await axiosWithAuth.post(this.BASE_URL, data)
     return response
@@ -40,6 +51,22 @@ export const getWishlists = async () => {
 
 export const getWishlistById = async (id: string) => {
   const response = await wishlistService.getWishlist(id)
+  return response.data
+}
+
+export const getWishlistsByUserId = async (userId: string) => {
+  const response = await wishlistService.getWishlistsByUserId(userId)
+  return response.data
+}
+
+export const getWishlistByUserId = async ({
+  userId,
+  listId
+}: {
+  userId: string
+  listId: string
+}) => {
+  const response = await wishlistService.getWishlistByUserId({ userId, listId })
   return response.data
 }
 

@@ -2,10 +2,10 @@ import { MutateOptions } from "@tanstack/react-query"
 import { AxiosResponse } from "axios"
 
 import styles from "./main.module.scss"
-import { TModalBaseProps, TWishlist } from "../../../types"
-import { uiText } from "../../../uiText"
-import { useSelectedList } from "../../../utils/SelectedListContext"
-import { TWishlistItem } from "../../../types"
+import { TModalBaseProps, TWishlist } from "../../../../types"
+import { uiText } from "../../../../uiText"
+import { useSelectedList } from "../../../../utils/SelectedListContext"
+import { TWishlistItem } from "../../../../types"
 
 import { Button } from "@/components/Button"
 import { BaseModal } from "@/components/BaseModal"
@@ -34,7 +34,7 @@ export const ConfirmDeletionModal = (props: Props) => {
   const { type, name, isOpen, onClose, deleteFn, onDelete } = props
   const { selectedListId, setSelectedListId } = useSelectedList()
   const { selectedListItemId, setSelectedListItemId } = useSelectedListItem()
-  const componentText =
+  const modalText =
     type === "list" ? uiText.modals.confirmDeletion.list : uiText.modals.confirmDeletion.element
 
   const handleDelete = () => {
@@ -64,18 +64,18 @@ export const ConfirmDeletionModal = (props: Props) => {
       maxWidth="45rem"
     >
       <div className={styles["modal__text"]}>
-        <h2 className={styles["modal__text-title"]}>{`${componentText.title} "${name}"?`}</h2>
-        <p className={styles["modal__text-description"]}>{`${componentText.description}`}</p>
+        <h2 className={styles["modal__text-title"]}>{`${modalText.title} "${name}"?`}</h2>
+        <p className={styles["modal__text-description"]}>{`${modalText.description}`}</p>
       </div>
 
       <div className={styles["modal__actions"]}>
-        <Button onClick={handleDelete}>{componentText.actions.delete}</Button>
+        <Button onClick={handleDelete}>{modalText.actions.delete}</Button>
         <Button
           variant="tertiary"
           type="reset"
           onClick={onClose}
         >
-          {componentText.actions.cancel}
+          {modalText.actions.cancel}
         </Button>
       </div>
     </BaseModal>

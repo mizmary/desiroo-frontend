@@ -32,7 +32,6 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
             path={pageConfig.lists}
             element={<Wishlists />}
           />
-
           <Route
             path={pageConfig.subscriptions}
             element={<InProgress />}
@@ -40,6 +39,15 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
           <Route
             path={pageConfig.achievements}
             element={<InProgress />}
+          />
+
+          <Route
+            path={pageConfig.user}
+            element={<InProgress />}
+          />
+          <Route
+            path={pageConfig.userLists}
+            element={<Wishlists />}
           />
         </Route>
       </Routes>

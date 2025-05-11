@@ -1,20 +1,12 @@
-import { useState } from "react"
-
 import styles from "./main.module.scss"
-import { ItemTag } from "../../ItemTag"
-import { WishlistItemModal } from "../WishlistItemModal"
-import { ConfirmDeletionModal } from "../ConfirmDeletionModal"
+import { ItemTag } from "../../../common/ItemTag"
 
 import { useSelectedListItem } from "@/app/wishlists/utils/SelectedListItemContext"
 import { useSelectedList } from "@/app/wishlists/utils/SelectedListContext"
-import { Button } from "@/components/Button"
 import { BaseModal } from "@/components/BaseModal"
 import { uiText } from "@/app/wishlists/uiText"
-import {
-  useDeleteWishlistItem,
-  useUpdateWishlistItem,
-  useWishlistItem
-} from "@/app/wishlists/hooks/useWishlistItems"
+import { useWishlistItem } from "@/app/wishlists/hooks/useWishlistItems"
+import { Button } from "@/components/Button"
 
 type Props = {
   isOpen: boolean
@@ -23,23 +15,14 @@ type Props = {
 
 export const WishlistItemDetailsModal = (props: Props) => {
   const { isOpen, onClose } = props
-  const [isItemModalOpen, setItemModalOpen] = useState(false)
-  const [isConfirmDeletionModalOpen, setConfirmDeletionModalOpen] = useState(false)
+
   const { selectedListItemId } = useSelectedListItem()
   const { selectedListId } = useSelectedList()
+
   const { data: item } = useWishlistItem(selectedListId, selectedListItemId)
-  const { mutate: updateWishlistItem } = useUpdateWishlistItem()
-  const { mutate: deleteWishlistItem } = useDeleteWishlistItem()
+
   const modalText = uiText.modals.wishlistItemDetails
   const modalTitle = `${modalText.elementInfo.title} ${item?.title}`
-
-  const handleEditItem = () => {
-    setItemModalOpen(true)
-  }
-
-  const handleDeleteItem = () => {
-    setConfirmDeletionModalOpen(true)
-  }
 
   if (!isOpen || !item) return null
 
@@ -99,41 +82,13 @@ export const WishlistItemDetailsModal = (props: Props) => {
         </div>
         <div className={styles["modal__actions"]}>
           <Button
-            onClick={handleEditItem}
-            rightIcon="edit"
+            variant="tertiary"
+            onClick={onClose}
           >
-            {modalText.actions.edit}
-          </Button>
-          <Button
-            color="danger"
-            rightIcon="delete"
-            onClick={handleDeleteItem}
-          >
-            {modalText.actions.delete}
+            {modalText.actions.close}
           </Button>
         </div>
       </BaseModal>
-      <WishlistItemModal
-        type="edit"
-        defaultValues={item}
-        isOpen={isItemModalOpen}
-        onClose={() => {
-          setItemModalOpen(false)
-        }}
-        onSubmitForm={(data, wishlistId, itemId) =>
-          updateWishlistItem({ data, wishlistId, itemId })
-        }
-      />
-      <ConfirmDeletionModal
-        isOpen={isConfirmDeletionModalOpen}
-        onClose={() => {
-          setConfirmDeletionModalOpen(false)
-          onClose()
-        }}
-        type="element"
-        name={item.title}
-        deleteFn={deleteWishlistItem}
-      />
     </>
   )
 }

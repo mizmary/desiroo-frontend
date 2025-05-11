@@ -23,6 +23,8 @@ export const QUERY_KEY = {
   auth: "auth",
   wishlist: "wishlist",
   wishlists: "wishlists",
+  publicWishlist: "publicWishlist",
+  publicWishlists: "publicWishlists",
   wishlistItem: "wishlistItem",
   wishlistItems: "wishlistItems"
 } as const

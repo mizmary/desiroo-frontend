@@ -1,26 +1,29 @@
 import { useCallback, useState } from "react"
 
 import { useCreateWishlistItem } from "../../hooks/useWishlistItems"
-import { useSelectedList } from "../../utils/SelectedListContext"
-import styles from "./main.module.scss"
-import { WishlistItemModal } from "../modals/WishlistItemModal"
-import { WishlistModal } from "../modals/WishlistModal"
-import { ConfirmDeletionModal } from "../modals/ConfirmDeletionModal"
-import { WishlistItems } from "./WishlistItems"
 import { useDeleteWishlist, useUpdateWishlist, useWishlistById } from "../../hooks/useWishlists"
+import { useSelectedList } from "../../utils/SelectedListContext"
 import { uiText } from "../../uiText"
+import { WishlistItemsOwner } from "./WishlistItemsOwner"
+import { ConfirmDeletionModal } from "./modals/ConfirmDeletionModal"
+import styles from "../common/styles/wishlistDetails.module.scss"
+import { WishlistEditorModal } from "./modals/WishlistEditorModal"
+import { WishlistItemEditorModal } from "./modals/WishlistItemEditorModal"
 
 import { IconButton } from "@/components/IconButton"
 
-export const WishlistDetails = () => {
+export const WishlistDetailsOwner = () => {
   const { selectedListId } = useSelectedList()
+
+  const { data: wishlist } = useWishlistById(selectedListId)
+  const { mutate: createWishlistItem } = useCreateWishlistItem()
+  const { mutate: updateWishlist } = useUpdateWishlist()
+  const { mutate: deleteWishlist } = useDeleteWishlist()
+
   const [isCreateWishlistItemModalOpen, setCreateWishlistItemModalOpen] = useState(false)
   const [isEditWishlistModalOpen, setEditWishlistModalOpen] = useState(false)
   const [isConfirmDeletionModalOpen, setConfirmDeletionModalOpen] = useState(false)
-  const { data: wishlist } = useWishlistById(selectedListId)
-  const { mutate: deleteWishlist } = useDeleteWishlist()
-  const { mutate: updateWishlist } = useUpdateWishlist()
-  const { mutate: createWishlistItem } = useCreateWishlistItem()
+
   const wishlistTitle = wishlist?.title
   const componentText = uiText.wishlistDetails
 
@@ -65,19 +68,19 @@ export const WishlistDetails = () => {
           />
         </div>
       </div>
-      <WishlistItems />
-      <WishlistItemModal
+      <WishlistItemsOwner />
+      <WishlistItemEditorModal
+        type={"create"}
         isOpen={isCreateWishlistItemModalOpen}
         onClose={() => setCreateWishlistItemModalOpen(false)}
-        type={"create"}
         onSubmitForm={(data, wishlistId) => {
           createWishlistItem({ data, wishlistId })
         }}
       />
-      <WishlistModal
+      <WishlistEditorModal
+        type="edit"
         isOpen={isEditWishlistModalOpen}
         onClose={() => setEditWishlistModalOpen(false)}
-        type="edit"
         defaultValues={wishlist!}
         onSubmitForm={(data, wishlistId) => {
           updateWishlist({ data, wishlistId })
@@ -85,8 +88,8 @@ export const WishlistDetails = () => {
       />
       {wishlist && (
         <ConfirmDeletionModal
-          isOpen={isConfirmDeletionModalOpen}
           type="list"
+          isOpen={isConfirmDeletionModalOpen}
           name={wishlist.title}
           onClose={() => setConfirmDeletionModalOpen(false)}
           deleteFn={deleteWishlist}

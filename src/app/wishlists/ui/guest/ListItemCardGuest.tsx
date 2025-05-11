@@ -1,65 +1,36 @@
-import clsx from "clsx"
 import { useState } from "react"
 
-import styles from "./main.module.scss"
-import { useSelectedList } from "../../utils/SelectedListContext"
 import { useSelectedListItem } from "../../utils/SelectedListItemContext"
-import { WishlistItemDetailsModal } from "../../../../archive/modals/WishlistItemDetailsModal"
+import styles from "../common/styles/listCard.module.scss"
+import { TWishlistItem } from "../../types"
 import { ItemTag } from "../common/ItemTag"
+import { WishlistItemDetailsModal } from "./modals/WishlistItemDetailsModal"
 
-import { TWishlistItem } from "@/app/wishlists/types"
-import { useUpdateWishlistItem } from "@/app/wishlists/hooks/useWishlistItems"
 import { Button } from "@/components/Button"
 
 type Props = {
   item: TWishlistItem
 }
-
-export const ListItemCard = (props: Props) => {
+export const ListItemCardGuest = (props: Props) => {
   const { item } = props
   const { title, priceRange, priority, isCompleted, id } = item
-  const [completed, setCompleted] = useState(isCompleted)
-  const { mutate: updateWishlistItem } = useUpdateWishlistItem()
-  const { selectedListId } = useSelectedList()
-  const { setSelectedListItemId } = useSelectedListItem()
+
   const [isItemDetailsModalOpen, setItemDetailsModalOpen] = useState(false)
 
-  const handleCheckboxToggle = () => {
-    const newValue = !completed
-    setCompleted(newValue)
-    updateWishlistItem({
-      data: { isCompleted: newValue },
-      wishlistId: selectedListId,
-      itemId: id
-    })
-  }
+  const { setSelectedListItemId } = useSelectedListItem()
+
+  //TODO: мутация на резервирование подарка
 
   const handleViewDetails = () => {
     setSelectedListItemId(item.id)
     setItemDetailsModalOpen(true)
   }
 
-  const checkboxIconClass = clsx(
-    "material-symbols-outlined",
-    styles["list-item-card__control-checkbox"]
-  )
-
-  const titleClass = clsx(
-    styles["list-item-card__control-title"],
-    completed && styles["list-item-card__control-title-completed"]
-  )
-
   return (
     <>
       <div className={styles["list-item-card"]}>
         <div className={styles["list-item-card__control"]}>
-          <span
-            className={checkboxIconClass}
-            onClick={handleCheckboxToggle}
-          >
-            {completed ? "check_box" : "check_box_outline_blank"}
-          </span>
-          <p className={titleClass}>{title}</p>
+          <p className={styles["list-item-card__control-title"]}>{title}</p>
         </div>
         <div className={styles["list-item-card__info"]}>
           <div className={styles["list-item-card__info-tags"]}>

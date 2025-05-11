@@ -41,7 +41,8 @@ export const uiText = {
         description: "Это действие удалит его навсегда и не может быть отменено.",
         actions: {
           delete: "Удалить",
-          cancel: "Отменить"
+          cancel: "Отменить",
+          close: "Закрыть"
         }
       }
     },
@@ -99,22 +100,31 @@ export const uiText = {
       },
       actions: {
         edit: "Редактировать",
-        delete: "Удалить"
+        delete: "Удалить",
+        close: "Закрыть"
       }
     }
   },
   wishlistDetails: {
-    items: {
+    owner: {
       emptyList: "В этом списке еще нет элементов, давайте добавим первый!",
       addAction: "Добавить подарок"
+    },
+    guest: {
+      emptyList: "В этом списке еще нет элементов."
     },
     nonSelectedList: "Выберите список для просмотра его элементов"
   },
   wishlistsOverview: {
-    addListAction: "Добавить список",
-    emptyList: {
-      text: "У вас еще нет списков. Давайте создадим ваш первый вишлист!",
-      action: "Создать вишлист"
+    owner: {
+      emptyList: {
+        text: "У вас еще нет списков. Давайте создадим ваш первый вишлист!",
+        action: "Создать вишлист"
+      },
+      addListAction: "Добавить список"
+    },
+    guest: {
+      emptyListText: "У данного пользователя еще нет списков."
     }
   }
 }

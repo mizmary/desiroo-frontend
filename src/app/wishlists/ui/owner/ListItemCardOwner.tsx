@@ -1,28 +1,31 @@
-import clsx from "clsx"
 import { useState } from "react"
+import { clsx } from "clsx"
 
-import styles from "./main.module.scss"
+import { useUpdateWishlistItem } from "../../hooks/useWishlistItems"
+import { TWishlistItem } from "../../types"
 import { useSelectedList } from "../../utils/SelectedListContext"
 import { useSelectedListItem } from "../../utils/SelectedListItemContext"
-import { WishlistItemDetailsModal } from "../../../../archive/modals/WishlistItemDetailsModal"
+import styles from "../common/styles/listCard.module.scss"
 import { ItemTag } from "../common/ItemTag"
+import { WishlistItemDetailsModal } from "./modals/WishlistItemDetailsModal"
 
-import { TWishlistItem } from "@/app/wishlists/types"
-import { useUpdateWishlistItem } from "@/app/wishlists/hooks/useWishlistItems"
 import { Button } from "@/components/Button"
 
 type Props = {
   item: TWishlistItem
 }
 
-export const ListItemCard = (props: Props) => {
+export const ListItemCardOwner = (props: Props) => {
   const { item } = props
   const { title, priceRange, priority, isCompleted, id } = item
+
   const [completed, setCompleted] = useState(isCompleted)
-  const { mutate: updateWishlistItem } = useUpdateWishlistItem()
+  const [isItemDetailsModalOpen, setItemDetailsModalOpen] = useState(false)
+
   const { selectedListId } = useSelectedList()
   const { setSelectedListItemId } = useSelectedListItem()
-  const [isItemDetailsModalOpen, setItemDetailsModalOpen] = useState(false)
+
+  const { mutate: updateWishlistItem } = useUpdateWishlistItem()
 
   const handleCheckboxToggle = () => {
     const newValue = !completed

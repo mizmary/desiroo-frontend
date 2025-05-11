@@ -1,8 +1,8 @@
 import clsx from "clsx"
 
 import styles from "./main.module.scss"
-import { TPriceRange, TPriority } from "../../types"
-import { uiText } from "../../uiText"
+import { TPriceRange, TPriority } from "../../../types"
+import { uiText } from "../../../uiText"
 
 type TPriceTagProps = {
   type: "price"

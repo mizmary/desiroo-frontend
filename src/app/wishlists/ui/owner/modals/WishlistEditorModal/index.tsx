@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import { Controller, useForm } from "react-hook-form"
 
 import styles from "./main.module.scss"
-import { ACCESS_LEVEL } from "../../../constants"
+import { ACCESS_LEVEL } from "../../../../constants"
 
 import { useUser } from "@/hooks/useUser"
 import { Input } from "@/components/Input"
@@ -26,7 +26,8 @@ type TEditProps = {
 }
 
 type Props = TModalBaseProps & (TCreateProps | TEditProps)
-export const WishlistModal = (props: Props) => {
+
+export const WishlistEditorModal = (props: Props) => {
   const { selectedListId } = useSelectedList()
   const { isOpen, onClose, type } = props
   const { user } = useUser()

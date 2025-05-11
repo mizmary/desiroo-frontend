@@ -1,10 +1,10 @@
 import clsx from "clsx"
 
 import styles from "./main.module.scss"
-import { useSelectedList } from "../../utils/SelectedListContext"
-import { ACCESS_LEVEL_TITLES } from "../../constants"
-import { TAccessLevel } from "../../types"
-import { uiText } from "../../uiText"
+import { TAccessLevel } from "../../../types"
+import { uiText } from "../../../uiText"
+import { useSelectedList } from "../../../utils/SelectedListContext"
+import { ACCESS_LEVEL_TITLES } from "../../../constants"
 
 type Props = {
   title: string

@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import { Controller, useForm } from "react-hook-form"
 
 import styles from "./main.module.scss"
-import { PRICE_RANGE, PRIORITY } from "../../../constants"
+import { PRICE_RANGE, PRIORITY } from "../../../../constants"
 
 import { useSelectedList } from "@/app/wishlists/utils/SelectedListContext"
 import { PRICE_RANGE_OPTIONS, PRIORITY_OPTIONS } from "@/app/wishlists/constants"
@@ -27,7 +27,7 @@ type TEditProps = {
 
 type Props = TModalBaseProps & (TCreateProps | TEditProps)
 
-export const WishlistItemModal = (props: Props) => {
+export const WishlistItemEditorModal = (props: Props) => {
   const { isOpen, onClose, type, onSubmitForm } = props
   const { selectedListId } = useSelectedList()
   const { selectedListItemId } = useSelectedListItem()

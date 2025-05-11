@@ -5,7 +5,9 @@ import {
   createWishlist,
   deleteWishlist,
   getWishlistById,
+  getWishlistByUserId,
   getWishlists,
+  getWishlistsByUserId,
   updateWishlist
 } from "../api/wishlist.api"
 
@@ -22,6 +24,20 @@ export const useWishlistById = (id: string | null) =>
     queryKey: [QUERY_KEY.wishlist, id],
     queryFn: () => getWishlistById(id!),
     enabled: !!id
+  })
+
+export const useWishlistsByUserId = (userId: string | null) =>
+  useQuery({
+    queryKey: [QUERY_KEY.publicWishlists, userId],
+    queryFn: () => getWishlistsByUserId(userId!),
+    enabled: !!userId
+  })
+
+export const useWishlistByUserId = (userId: string, listId: string) =>
+  useQuery({
+    queryKey: [QUERY_KEY.publicWishlist, userId, listId],
+    queryFn: () => getWishlistByUserId({ userId, listId }),
+    enabled: !!userId
   })
 
 export const useCreateWishlist = () => {
