@@ -1,0 +1,31 @@
+.reserved {
+    width: 100%;
+    padding-top: 1.2rem;
+    @include radius(lg);
+    border: 1px solid;
+    transition:
+      box-shadow 0.3s ease,
+      transform 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    @include color(border-color, grey, 200);
+
+    &:hover {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      transform: translateY(-4px);
+    }
+
+
+    &--my-reservation{
+        @include color(background-color, purple, 50);
+        @include color(border-color, purple);
+    }
+
+    &--alien-reservation {
+         @include color(background-color, peach, 50);
+    }
+
+    &__title {
+        padding: 0.8rem 1.2rem;
+        @include font(bodyM);
+    }
+}

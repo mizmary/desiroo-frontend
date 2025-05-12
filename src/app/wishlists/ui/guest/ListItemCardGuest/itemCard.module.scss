@@ -1,0 +1,59 @@
+.disabled {
+    
+  position: relative;
+  
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3); 
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 16px;
+    gap: 8px;
+    border-radius: 12px;
+
+    &--text {
+        @include color(background-color, purple, 50);
+        @include color(color, purple, 950);
+        @include font(bodyS);
+  padding: 6px 12px;
+  border: 1px solid;
+  @include color(border-color, purple);
+  @include radius(sm);
+  height: 32px;
+   position: relative;
+   z-index: 1;
+
+        
+}
+
+&--button{
+    height: 32px;
+    position: relative;
+    right: 16px;
+}
+  }
+
+
+}
+
+.enabled, .disabled {
+  width: 100%;
+    @include radius(lg);
+    transition:
+      box-shadow 0.3s ease,
+      transform 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      transform: translateY(-4px);
+    }
+}
+
+
+
+
+

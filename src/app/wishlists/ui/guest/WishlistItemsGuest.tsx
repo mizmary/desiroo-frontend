@@ -2,7 +2,7 @@ import { useWishlistItems } from "../../hooks/useWishlistItems"
 import { uiText } from "../../uiText"
 import { useSelectedList } from "../../utils/SelectedListContext"
 import styles from "../common/styles/wishlistItems.module.scss"
-import { ListItemCardGuest } from "./ListItemCardGuest"
+import { ListItemCardGuest } from "./ListItemCardGuest/ListItemCardGuest"
 
 export const WishlistItemsGuest = () => {
   const { selectedListId } = useSelectedList()

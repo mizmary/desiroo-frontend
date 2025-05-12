@@ -24,6 +24,16 @@ export const uiText = {
     listCard: {
       elementsCount: "Количество элементов",
       accessLevel: "Уровень доступа"
+    },
+    listItemCard: {
+      myReservation: "Забронировано вами",
+      alienReservation: "Забронировано другим пользователем",
+      actions: {
+        details: "Показать детали",
+        reservation: "Забронировать",
+        cancelReservation: "Отменить бронь"
+      },
+      disabledItem: "Этот подарок уже есть у пользователя"
     }
   },
   modals: {

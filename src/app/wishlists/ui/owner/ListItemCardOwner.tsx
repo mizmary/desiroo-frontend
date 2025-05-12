@@ -5,7 +5,7 @@ import { useUpdateWishlistItem } from "../../hooks/useWishlistItems"
 import { TWishlistItem } from "../../types"
 import { useSelectedList } from "../../utils/SelectedListContext"
 import { useSelectedListItem } from "../../utils/SelectedListItemContext"
-import styles from "../common/styles/listCard.module.scss"
+import styles from "./listItemCard.module.scss"
 import { ItemTag } from "../common/ItemTag"
 import { WishlistItemDetailsModal } from "./modals/WishlistItemDetailsModal"
 
@@ -65,7 +65,7 @@ export const ListItemCardOwner = (props: Props) => {
           <p className={titleClass}>{title}</p>
         </div>
         <div className={styles["list-item-card__info"]}>
-          <div className={styles["list-item-card__info-tags"]}>
+          <div className={styles["list-item-card__info-group"]}>
             <ItemTag
               type="price"
               value={priceRange}

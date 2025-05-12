@@ -4,7 +4,6 @@ import { Controller, useForm } from "react-hook-form"
 import styles from "./main.module.scss"
 import { ACCESS_LEVEL } from "../../../../constants"
 
-import { useUser } from "@/hooks/useUser"
 import { Input } from "@/components/Input"
 import { Button } from "@/components/Button"
 import { RadioGroup } from "@/components/RadioGroup"
@@ -30,7 +29,6 @@ type Props = TModalBaseProps & (TCreateProps | TEditProps)
 export const WishlistEditorModal = (props: Props) => {
   const { selectedListId } = useSelectedList()
   const { isOpen, onClose, type } = props
-  const { user } = useUser()
   const modalText = uiText.modals.wishlist
 
   const defaultValues =
@@ -38,8 +36,7 @@ export const WishlistEditorModal = (props: Props) => {
       ? props.defaultValues
       : {
           isGroupList: false,
-          accessLevel: ACCESS_LEVEL.public,
-          user: user
+          accessLevel: ACCESS_LEVEL.public
         }
 
   const { register, handleSubmit, reset, control } = useForm<TWishlistForm>({

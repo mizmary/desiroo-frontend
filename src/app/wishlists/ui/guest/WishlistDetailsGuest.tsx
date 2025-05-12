@@ -12,7 +12,6 @@ export const WishlistDetailsGuest = ({ userId }: Props) => {
   const { selectedListId } = useSelectedList()
 
   const { data: wishlist } = useWishlistByUserId(userId, selectedListId)
-  console.log(wishlist)
 
   const wishlistTitle = wishlist?.title
   const componentText = uiText.wishlistDetails

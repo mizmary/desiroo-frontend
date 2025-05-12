@@ -5,17 +5,18 @@ import { toast } from "sonner"
 
 import { authService } from "@/app/auth/api/auth.api"
 import { ROUTS } from "@/constants"
+import { IUser } from "@/app/auth/types"
 
 export const useUser = () => {
   const navigate = useNavigate()
-  const user = localStorage.getItem("user")
+  const storedUser = localStorage.getItem("user")
 
   useEffect(() => {
-    if (!user) {
+    if (!storedUser) {
       toast.warning("Нужно авторизоваться для этого действия")
       navigate(ROUTS.auth)
     }
-  }, [user, navigate])
+  }, [storedUser, navigate])
 
   const { mutate: logout, isPending } = useMutation({
     mutationKey: ["logout"],
@@ -30,7 +31,9 @@ export const useUser = () => {
     }
   })
 
-  if (!user) throw new Error("Redirecting to /auth")
+  if (!storedUser) throw new Error("Redirecting to /auth")
+
+  const user: IUser = JSON.parse(storedUser)
 
   return {
     user,
