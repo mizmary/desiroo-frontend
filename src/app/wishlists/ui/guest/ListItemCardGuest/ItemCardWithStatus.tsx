@@ -9,29 +9,44 @@ import { Button } from "@/components/Button"
 import { TWishlistItem } from "@/app/wishlists/types"
 import { uiText } from "@/app/wishlists/uiText"
 import { useSelectedListItem } from "@/app/wishlists/utils/SelectedListItemContext"
+import { useUpdateWishlistItem } from "@/app/wishlists/hooks/useWishlistItems"
+import { useSelectedList } from "@/app/wishlists/utils/SelectedListContext"
 
 type Props = {
   item: TWishlistItem
   isMyReservation?: boolean
 }
 
-export const ItemCardWithReservation = (props: Props) => {
+export const ItemCardWithStatus = (props: Props) => {
   const { item, isMyReservation = false } = props
   const componentText = uiText.components.listItemCard
+  const { isCompleted } = item
 
   const cardClass = clsx(
-    styles["reserved"],
-    isMyReservation && styles["reserved--my-reservation"],
-    !isMyReservation && styles["reserved--alien-reservation"]
+    styles["card"],
+    isMyReservation && styles["card--my-reservation"],
+    !isMyReservation && styles["card--alien-reservation"],
+    item.isCompleted && styles["card--completed"]
   )
 
   const [isItemDetailsModalOpen, setItemDetailsModalOpen] = useState(false)
 
   const { setSelectedListItemId } = useSelectedListItem()
+  const { selectedListId } = useSelectedList()
+
+  const { mutate: updateWishlistItem } = useUpdateWishlistItem()
 
   const handleViewDetails = () => {
     setSelectedListItemId(item.id)
     setItemDetailsModalOpen(true)
+  }
+
+  const handleCancelReservation = () => {
+    updateWishlistItem({
+      data: { isReserved: false, reserveUserId: null },
+      wishlistId: selectedListId,
+      itemId: item.id
+    })
   }
 
   const myReservationActions = [
@@ -48,10 +63,12 @@ export const ItemCardWithReservation = (props: Props) => {
       size="small"
       color="danger"
       variant="secondary"
+      onClick={handleCancelReservation}
     >
       {componentText.actions.cancelReservation}
     </Button>
   ]
+
   const alienReservationActions = [
     <Button
       key={`${[componentText.actions.details]}`}
@@ -63,17 +80,39 @@ export const ItemCardWithReservation = (props: Props) => {
     </Button>
   ]
 
+  const actions = isCompleted
+    ? []
+    : isMyReservation
+      ? myReservationActions
+      : alienReservationActions
+
+  const title = isCompleted
+    ? componentText.disabledItem
+    : isMyReservation
+      ? componentText.myReservation
+      : componentText.alienReservation
+
   return (
     <>
       <div className={cardClass}>
-        <div className={styles["reserved__title"]}>
-          <p>{isMyReservation ? componentText.myReservation : componentText.alienReservation}</p>
+        <div className={styles["card__title"]}>
+          <p>{title}</p>
         </div>
-        <BaseItemCard
-          item={item}
-          actions={isMyReservation ? myReservationActions : alienReservationActions}
-          isEmbedded
-        />
+        {isCompleted ? (
+          <div className={styles["card__disabled"]}>
+            <BaseItemCard
+              item={item}
+              actions={actions}
+            />
+            <div className={styles["card__disabled--overlay"]}></div>
+          </div>
+        ) : (
+          <BaseItemCard
+            item={item}
+            actions={actions}
+            isEmbedded
+          />
+        )}
       </div>
       <WishlistItemDetailsModal
         isOpen={isItemDetailsModalOpen}

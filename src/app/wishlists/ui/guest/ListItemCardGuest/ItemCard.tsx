@@ -8,27 +8,43 @@ import { TWishlistItem } from "@/app/wishlists/types"
 import { Button } from "@/components/Button"
 import { uiText } from "@/app/wishlists/uiText"
 import { useSelectedListItem } from "@/app/wishlists/utils/SelectedListItemContext"
+import { useUpdateWishlistItem } from "@/app/wishlists/hooks/useWishlistItems"
+import { useSelectedList } from "@/app/wishlists/utils/SelectedListContext"
+import { useUser } from "@/hooks/useUser"
 
 type Props = {
   item: TWishlistItem
 }
 
-export const ItemCardEnabled = (props: Props) => {
+export const ItemCard = (props: Props) => {
   const { item } = props
   const componentText = uiText.components.listItemCard
 
   const [isItemDetailsModalOpen, setItemDetailsModalOpen] = useState(false)
 
   const { setSelectedListItemId } = useSelectedListItem()
+  const { selectedListId } = useSelectedList()
+
+  const { user } = useUser()
 
   const handleViewDetails = () => {
     setSelectedListItemId(item.id)
     setItemDetailsModalOpen(true)
   }
 
+  const { mutate: updateWishlistItem } = useUpdateWishlistItem()
+
+  const handleSetItemReserved = () => {
+    updateWishlistItem({
+      data: { isReserved: true, reserveUserId: user.id },
+      wishlistId: selectedListId,
+      itemId: item.id
+    })
+  }
+
   return (
     <>
-      <div className={styles["enabled"]}>
+      <div className={styles["card"]}>
         <BaseItemCard
           item={item}
           actions={[
@@ -42,7 +58,7 @@ export const ItemCardEnabled = (props: Props) => {
             </Button>,
             <Button
               key={`${[componentText.actions.reservation]}`}
-              onClick={handleViewDetails}
+              onClick={handleSetItemReserved}
               size="small"
               color="peach"
             >

@@ -35,7 +35,7 @@ export type TWishlistItem = {
   isCompleted: boolean
   imagesURL: string
   isReserved: boolean
-  reserveUserId?: string
+  reserveUserId?: string | null
 }
 
 export type TWishlistItemForm = Partial<

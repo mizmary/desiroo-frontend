@@ -42,7 +42,7 @@ export const useCreateWishlistItem = () => {
 export const useUpdateWishlistItem = () => {
   const queryClient = useQueryClient()
   return useMutation({
-    mutationKey: [MUTATION_KEY.updateWishlist],
+    mutationKey: [MUTATION_KEY.updateWishlistItem],
     mutationFn: updateWishlistItem,
     onSuccess: () => {
       queryClient.invalidateQueries({

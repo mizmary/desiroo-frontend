@@ -1,5 +1,5 @@
-import { ItemCardWithReservation } from "./ItemCardWithReservation"
-import { ItemCardEnabled } from "./ItemCardEnabled"
+import { ItemCardWithStatus } from "./ItemCardWithStatus"
+import { ItemCard } from "./ItemCard"
 
 import { TWishlistItem } from "@/app/wishlists/types"
 import { useUser } from "@/hooks/useUser"
@@ -15,23 +15,15 @@ export const ListItemCardGuest = (props: Props) => {
   const currentUser = user.id
   const isMyReserve = currentUser === reserveUserId
 
-  if (isCompleted) return "completed item"
-
-  if (reserveUserId && !isMyReserve)
-    return (
-      <ItemCardWithReservation
-        item={item}
-        isMyReservation={false}
-      />
-    )
+  if (isCompleted || (reserveUserId && !isMyReserve)) return <ItemCardWithStatus item={item} />
 
   if (isMyReserve)
     return (
-      <ItemCardWithReservation
+      <ItemCardWithStatus
         item={item}
         isMyReservation
       />
     )
 
-  return <ItemCardEnabled item={item} />
+  return <ItemCard item={item} />
 }
