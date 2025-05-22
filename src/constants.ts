@@ -26,14 +26,18 @@ export const QUERY_KEY = {
   publicWishlist: "publicWishlist",
   publicWishlists: "publicWishlists",
   wishlistItem: "wishlistItem",
-  wishlistItems: "wishlistItems"
+  wishlistItems: "wishlistItems",
+  following: "following"
 } as const
 
 export const MUTATION_KEY = {
   createWishlist: "createWishlist",
   updateWishlist: "updateWishlist",
   deleteWishlist: "deleteWishlist",
+
   createWishlistItem: "createWishlistItem",
   updateWishlistItem: "updateWishlistItem",
-  deleteWishlistItem: "deleteWishlistItem"
+  deleteWishlistItem: "deleteWishlistItem",
+
+  updateProfile: "updateProfile"
 }

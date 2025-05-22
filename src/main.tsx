@@ -9,6 +9,8 @@ import { Providers } from "./providers"
 import { MainLayout } from "./layouts/MainLayout/layout"
 import { Auth } from "./app/auth/page"
 import { Wishlists } from "./app/wishlists/page"
+import { Subscriptions } from "./app/subscriptions/page"
+import { Onboarding } from "./app/Onboarding/page"
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <Providers>
@@ -23,6 +25,10 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
           path={pageConfig.auth}
           element={<Auth />}
         />
+        <Route
+          path={pageConfig.onboarding}
+          element={<Onboarding />}
+        />
         <Route element={<MainLayout />}>
           <Route
             path={pageConfig.profile}
@@ -34,7 +40,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
           />
           <Route
             path={pageConfig.subscriptions}
-            element={<InProgress />}
+            element={<Subscriptions />}
           />
           <Route
             path={pageConfig.achievements}

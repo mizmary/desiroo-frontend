@@ -3,6 +3,7 @@ class PageConfig {
 
   public readonly auth = "/auth"
   public readonly login = "/login"
+  public readonly onboarding = "/onboarding"
 
   public readonly lists = "/lists"
   public readonly profile = "/profile"

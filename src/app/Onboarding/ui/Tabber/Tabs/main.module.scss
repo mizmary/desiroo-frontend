@@ -1,0 +1,19 @@
+.tab {
+  display: flex;
+  flex-direction: column;
+  gap: 3.6rem;
+  @include font(bodyS);
+  justify-content: center;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    &--avatar {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+  }
+}

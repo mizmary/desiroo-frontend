@@ -16,7 +16,7 @@ export const AuthForm = (props: Props) => {
   const { type, onSubmit, setIsLoginForm } = props
   const { register } = useFormContext()
   const isRegister = type === "register"
-  const componentText = isRegister ? uiText.authForm.register : uiText.authForm.login
+  const componentText = isRegister ? uiText.authFormRegister : uiText.authFormLogin
 
   return (
     <form
@@ -35,6 +35,14 @@ export const AuthForm = (props: Props) => {
         placeholder={componentText.passwordPlaceholder}
         {...register("password")}
       />
+      {isRegister && (
+        <Input
+          type="name"
+          label={(componentText as typeof uiText.authFormRegister).nameLabel}
+          placeholder={(componentText as typeof uiText.authFormRegister).namePlaceholder}
+          {...register("name")}
+        />
+      )}
       <Button
         size="large"
         rightIcon="arrow_right_alt"

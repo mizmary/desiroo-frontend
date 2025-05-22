@@ -1,0 +1,109 @@
+.label {
+  display: flex;
+  flex-direction: column;
+  @include spacing(gap, xs);
+  @include font(bodyS);
+  width: 100%;
+  height: fit-content;
+  position: relative;
+
+  .inputWrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  .text {
+    @include spacing(padding-left, sm);
+
+    .helperText {
+      @include font(helper);
+      @include color(color, grey, 600);
+
+      &--error {
+        @include color(color, state, danger);
+      }
+    }
+  }
+
+  .container {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: 1px solid;
+    @include color(border-color, grey, 200);
+    @include radius(md);
+    @include color(background-color, white);
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+    font-family: $font-manrope;
+    @include color(color, grey, 800);
+    @include font(input);
+    @include spacing-axis(padding, sm, md);
+    @include spacing(gap, sm);
+
+    &:focus-within {
+      @include color(border-color, purple);
+    }
+
+    &.disabled {
+      @include color(background-color, grey, 100);
+      @include color(color, grey, 600);
+    }
+    &.error {
+      @include color(border-color, state, danger);
+    }
+
+    .icon {
+      @include color(color, grey, 400);
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .input {
+      background-color: transparent;
+      outline: 2px solid transparent;
+      outline-offset: 2px;
+      width: 100%;
+      cursor: pointer;
+    }
+  }
+
+  .dropdown {
+    @include color(background-color, white);
+    @include radius(md);
+    @include spacing(padding, sm);
+    border: 1px solid;
+    @include color(border-color, grey, 200);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 10;
+    position: absolute;
+    top: 100%;
+    margin-top: 4px;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #9a7ee7 #e6e6e6;
+  }
+
+  .option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: $font-manrope;
+    cursor: pointer;
+
+    input[type="checkbox"] {
+      @include color(accent-color, purple);
+    }
+  }
+}
+
+.checkbox {
+  @include color(color, purple);
+  cursor: pointer;
+  user-select: none;
+}

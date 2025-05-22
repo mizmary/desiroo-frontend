@@ -74,4 +74,4 @@ export const Input = forwardRef<HTMLInputElement, Props>(
   }
 )
 
-Input.displayName = "field"
+Input.displayName = "input"

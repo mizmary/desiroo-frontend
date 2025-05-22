@@ -1,19 +1,19 @@
 export const uiText = {
-  authForm: {
-    login: {
-      emailLabel: "Email",
-      emailPlaceholder: "Введите ваш email",
-      passwordLabel: "Пароль",
-      passwordPlaceholder: "Введите ваш пароль",
-      submitButton: "Войти"
-    },
-    register: {
-      emailLabel: "Email",
-      emailPlaceholder: "Введите ваш email",
-      passwordLabel: "Пароль",
-      passwordPlaceholder: "Введите ваш пароль",
-      submitButton: "Создать аккаунт"
-    }
+  authFormLogin: {
+    emailLabel: "Email",
+    emailPlaceholder: "Введите ваш email",
+    passwordLabel: "Пароль",
+    passwordPlaceholder: "Введите ваш пароль",
+    submitButton: "Войти"
+  },
+  authFormRegister: {
+    emailLabel: "Email",
+    emailPlaceholder: "Введите ваш email",
+    passwordLabel: "Пароль",
+    passwordPlaceholder: "Введите ваш пароль",
+    nameLabel: "Имя",
+    namePlaceholder: "Введите ваше имя",
+    submitButton: "Создать аккаунт"
   },
   page: {
     login: {
