@@ -4,6 +4,7 @@ export const ROUTS = {
   main: "/",
   auth: "/auth",
   login: "/login",
+  onboarding: "/onboarding",
   profile: "/profile",
   lists: "/lists",
   achievements: "/achievements",

@@ -48,5 +48,9 @@ export const uiText = {
     next: "Следующий шаг",
     end: "Завершить",
     skip: "Пропустить"
+  },
+  avatarModal: {
+    title: "Выберите аватар",
+    saveButton: "Сохранить"
   }
 }

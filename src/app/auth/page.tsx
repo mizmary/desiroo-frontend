@@ -30,7 +30,8 @@ export function Auth() {
       localStorage.setItem("user", JSON.stringify(data.data.user))
       toast.success("Successfully login")
       reset()
-      navigate(ROUTS.lists)
+      if (isLoginForm) navigate(ROUTS.profile)
+      else navigate(ROUTS.onboarding)
     }
   })
 
