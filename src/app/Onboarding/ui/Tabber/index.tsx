@@ -1,6 +1,6 @@
 import { useState } from "react"
 import clsx from "clsx"
-import { useMutation } from "@tanstack/react-query"
+import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { toast } from "sonner"
 import { useFormContext } from "react-hook-form"
 import { useNavigate } from "react-router"
@@ -13,7 +13,7 @@ import { uiText } from "../../uiText"
 import { updateProfile } from "../../api"
 
 import { Button } from "@/components/Button"
-import { MUTATION_KEY, ROUTS } from "@/constants"
+import { MUTATION_KEY, QUERY_KEY, ROUTS } from "@/constants"
 import { TypeUserForm } from "@/app/auth/types"
 
 const tabs = [
@@ -24,18 +24,22 @@ const tabs = [
 
 type TabKey = (typeof tabs)[number]["key"]
 
-export const Tabber = () => {
+export const Tabber = ({ onSave }: { onSave?: () => void }) => {
   const [activeTab, setActiveTab] = useState<TabKey>("general")
   const activeIndex = tabs.findIndex((tab) => tab.key === activeTab)
   const componentText = uiText.tabs
   const { watch, handleSubmit } = useFormContext<TypeUserForm>()
   const formData = watch()
   const navigate = useNavigate()
+  const queryClient = useQueryClient()
 
   const { mutate } = useMutation({
     mutationKey: [MUTATION_KEY.updateProfile],
     mutationFn: updateProfile,
     onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: [QUERY_KEY.profile]
+      })
       toast.success("Данные сохранены!")
       navigate(ROUTS.profile)
     }
@@ -55,6 +59,7 @@ export const Tabber = () => {
 
   const handleSave = () => {
     mutate(formData)
+    if (onSave) onSave()
   }
 
   return (

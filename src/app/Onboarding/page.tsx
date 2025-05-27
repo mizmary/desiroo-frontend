@@ -1,5 +1,4 @@
 import { FormProvider, useForm } from "react-hook-form"
-import { useEffect } from "react"
 
 import { TypeUserForm } from "../auth/types"
 import styles from "./main.module.scss"
@@ -8,11 +7,6 @@ import { uiText } from "./uiText"
 
 export const Onboarding = () => {
   const methods = useForm<TypeUserForm>()
-  const fields = methods.watch()
-
-  useEffect(() => {
-    console.log(fields)
-  }, [fields])
 
   const pageText = uiText
   return (

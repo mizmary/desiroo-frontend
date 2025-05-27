@@ -4,4 +4,5 @@
   @include color(background-color, white);
   @include radius(lg);
   padding: 2rem;
+  box-sizing: border-box;
 }

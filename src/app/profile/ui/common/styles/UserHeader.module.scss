@@ -1,15 +1,16 @@
 .userHeader {
+  width: 100%;
   display: flex;
   padding: 2rem;
   gap: 6.4rem;
   @include font(bodyM);
   @include radius(md);
   @include color(background-color, white);
-  box-shadow:  4px 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.15);
   border: 1px solid;
   @include color(border-color, grey, 200);
 }
-.actionButton{
-    width: 100%;
-        justify-content: center;
+.actionButton {
+  width: 100%;
+  justify-content: center;
 }

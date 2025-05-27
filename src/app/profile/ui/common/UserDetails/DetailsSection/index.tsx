@@ -32,18 +32,19 @@ export const DetailsSection = (props: Props) => {
           ))}
         </div>
       )}
-      {tags && tags.length > 0 ? (
-        <div className={styles["section__tags"]}>
-          {tags.map((tag, index) => (
-            <Tag
-              key={`key-${index}`}
-              title={tag}
-            />
-          ))}
-        </div>
-      ) : (
-        "Нет тегов"
-      )}
+      {tags &&
+        (tags.length > 0 ? (
+          <div className={styles["section__tags"]}>
+            {tags.map((tag, index) => (
+              <Tag
+                key={`key-${index}`}
+                title={tag}
+              />
+            ))}
+          </div>
+        ) : (
+          "Нет тегов"
+        ))}
     </div>
   )
 }
