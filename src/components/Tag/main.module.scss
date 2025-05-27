@@ -1,0 +1,9 @@
+.tag{
+    padding: 0.4rem 1.2rem;
+    @include font(bodyM);
+    @include radius(md);
+    border: 1px solid;
+    @include color(color, purple);
+    @include color(border-color, purple);
+    width: fit-content
+}

@@ -1,0 +1,15 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+
+  &__title {
+    @include font(h4);
+  }
+
+  &__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+}

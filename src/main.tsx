@@ -11,6 +11,7 @@ import { Auth } from "./app/auth/page"
 import { Wishlists } from "./app/wishlists/page"
 import { Subscriptions } from "./app/subscriptions/page"
 import { Onboarding } from "./app/Onboarding/page"
+import { Profile } from "./app/profile/page"
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <Providers>
@@ -32,7 +33,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
         <Route element={<MainLayout />}>
           <Route
             path={pageConfig.profile}
-            element={<InProgress />}
+            element={<Profile />}
           />
           <Route
             path={pageConfig.lists}
@@ -49,7 +50,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 
           <Route
             path={pageConfig.user}
-            element={<InProgress />}
+            element={<Profile />}
           />
           <Route
             path={pageConfig.userLists}

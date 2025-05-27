@@ -11,6 +11,7 @@ export interface IUser {
 
   bio?: string
   tags: string[]
+  avatar?: string
 
   shirtSizes: string[]
   shoeSizes: string[]

@@ -22,6 +22,9 @@ export const ROUTES_TITLES: Record<string, string> = {
 
 export const QUERY_KEY = {
   auth: "auth",
+  profile: "profile",
+  publicProfile: "publicProfile",
+  isFollowing: "isFollowing",
   wishlist: "wishlist",
   wishlists: "wishlists",
   publicWishlist: "publicWishlist",
@@ -40,5 +43,8 @@ export const MUTATION_KEY = {
   updateWishlistItem: "updateWishlistItem",
   deleteWishlistItem: "deleteWishlistItem",
 
-  updateProfile: "updateProfile"
+  updateProfile: "updateProfile",
+
+  followUser: "followUser",
+  unfollowUser: "unfollowUser"
 }
