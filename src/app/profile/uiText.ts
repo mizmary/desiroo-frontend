@@ -24,7 +24,11 @@ export const uiText = {
     }
   },
   lists: {
-    title: "Вишлисты",
-    toListsAction: "Перейти ко всем спискам"
+    title: {
+      guest: "Вишлисты",
+      owner: "Мои вишлисты"
+    },
+    toListsAction: "Перейти ко всем спискам",
+    emptyState: "Вишлистов еще нет"
   }
 }

@@ -1,3 +1,6 @@
+import { useEffect } from "react"
+import { useSearchParams } from "react-router"
+
 import { useWishlistByUserId } from "../../hooks/useWishlists"
 import { uiText } from "../../uiText"
 import { useSelectedList } from "../../utils/SelectedListContext"
@@ -9,7 +12,15 @@ type Props = {
 }
 
 export const WishlistDetailsGuest = ({ userId }: Props) => {
-  const { selectedListId } = useSelectedList()
+  const [searchParams] = useSearchParams()
+  const selectedId = searchParams.get("selected")
+  const { selectedListId, setSelectedListId } = useSelectedList()
+
+  useEffect(() => {
+    if (selectedId) {
+      setSelectedListId(selectedId)
+    }
+  }, [selectedId])
 
   const { data: wishlist } = useWishlistByUserId(userId, selectedListId)
 

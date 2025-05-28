@@ -1,4 +1,5 @@
-import { useCallback, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
+import { useSearchParams } from "react-router"
 
 import { useCreateWishlistItem } from "../../hooks/useWishlistItems"
 import { useDeleteWishlist, useUpdateWishlist, useWishlistById } from "../../hooks/useWishlists"
@@ -13,7 +14,15 @@ import { WishlistItemEditorModal } from "./modals/WishlistItemEditorModal"
 import { IconButton } from "@/components/IconButton"
 
 export const WishlistDetailsOwner = () => {
-  const { selectedListId } = useSelectedList()
+  const [searchParams] = useSearchParams()
+  const selectedId = searchParams.get("selected")
+  const { selectedListId, setSelectedListId } = useSelectedList()
+
+  useEffect(() => {
+    if (selectedId) {
+      setSelectedListId(selectedId)
+    }
+  }, [selectedId])
 
   const { data: wishlist } = useWishlistById(selectedListId)
   const { mutate: createWishlistItem } = useCreateWishlistItem()

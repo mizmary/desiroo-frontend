@@ -1,0 +1,43 @@
+.userWishlists{
+     width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  @include font(bodyM);
+  @include radius(md);
+  @include color(background-color, white);
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid;
+  @include color(border-color, grey, 200);
+  min-height: 20.8rem;
+  gap:1.2rem;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &--title{
+        @include font(h4)
+    }
+  }
+
+  &__lists{
+     width: 100%;
+    min-height: 12.4rem;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    &--emptyState{
+       flex: 1;
+      text-align: center;
+      @include font(bodyM);
+      @include color(color, grey, 200)
+    }
+    &--fulfilled {
+        display: flex;
+        flex: 1;
+        gap: 1.2rem;
+    }
+  }
+}

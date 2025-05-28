@@ -1,8 +1,8 @@
 import { useParams } from "react-router"
 
 import styles from "./main.module.scss"
-import { UserHeaderOwner } from "./ui/owner/UserHeaderOwner"
-import { UserHeaderGuest } from "./ui/guest/UserHeaderGuest"
+import { ProfileGuest } from "./ui/guest/ProfileGuest"
+import { ProfileUser } from "./ui/owner/ProfileUser"
 
 export const Profile = () => {
   const { userId } = useParams()
@@ -10,8 +10,8 @@ export const Profile = () => {
 
   return (
     <div className={styles.container}>
-      {isOwner && <UserHeaderOwner />}
-      {!isOwner && <UserHeaderGuest userId={userId} />}
+      {isOwner && <ProfileUser />}
+      {!isOwner && <ProfileGuest userId={userId} />}
     </div>
   )
 }

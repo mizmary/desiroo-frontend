@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 
-import { checkIsFollowing, followUser, getPublicProfile, unfollowUser } from "../../api"
+import { checkIsFollowing, followUser, unfollowUser } from "../../api"
 import { uiText } from "../../uiText"
 import styles from "../common/styles/UserHeader.module.scss"
 import { UserSummary } from "../common/UserSummary"
@@ -9,29 +9,21 @@ import { UserDetails } from "../common/UserDetails"
 import { MUTATION_KEY, QUERY_KEY } from "@/constants"
 import { Button } from "@/components/Button"
 import { useAuth } from "@/hooks/useAuth"
+import { IUser } from "@/app/auth/types"
 
 type Props = {
-  userId: string
+  user: IUser
 }
 
 export const UserHeaderGuest = (props: Props) => {
-  const { userId } = props
+  const { user } = props
   const { user: currentUser } = useAuth()
   const componentText = uiText.details
   const queryClient = useQueryClient()
 
-  const {
-    data: userData,
-    isSuccess,
-    isError
-  } = useQuery({
-    queryKey: [QUERY_KEY.publicProfile, userId],
-    queryFn: () => getPublicProfile(userId)
-  })
-
   const { data: followingData } = useQuery({
-    queryKey: [QUERY_KEY.isFollowing, userId],
-    queryFn: () => checkIsFollowing(currentUser!.id, userId)
+    queryKey: [QUERY_KEY.isFollowing, user.id],
+    queryFn: () => checkIsFollowing(currentUser!.id, user.id)
   })
 
   const { mutate: followUserMutation } = useMutation({
@@ -54,10 +46,10 @@ export const UserHeaderGuest = (props: Props) => {
   })
 
   const handleFollowUser = () => {
-    followUserMutation({ followerId: currentUser!.id, followingId: userId })
+    followUserMutation({ followerId: currentUser!.id, followingId: user.id })
   }
   const handleUnfollowUser = () => {
-    unfollowUserMutation({ followerId: currentUser!.id, followingId: userId })
+    unfollowUserMutation({ followerId: currentUser!.id, followingId: user.id })
   }
 
   const followAction = (
@@ -80,19 +72,14 @@ export const UserHeaderGuest = (props: Props) => {
     </Button>
   )
 
-  if (isError) return null
-
-  if (isSuccess) {
-    const user = userData.user
-    return (
-      <div className={styles["userHeader"]}>
-        <UserSummary
-          userName={user.name}
-          userAvatar={user.avatar}
-          actionButton={followingData ? existingFollowAction : followAction}
-        />
-        <UserDetails user={user} />
-      </div>
-    )
-  }
+  return (
+    <div className={styles["userHeader"]}>
+      <UserSummary
+        userName={user.name}
+        userAvatar={user.avatar}
+        actionButton={followingData ? existingFollowAction : followAction}
+      />
+      <UserDetails user={user} />
+    </div>
+  )
 }

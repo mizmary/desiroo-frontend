@@ -3,7 +3,7 @@ import { TWishlistItem, TWishlistItemForm } from "../types"
 import { axiosWithAuth } from "@/api/interceptors"
 
 class WishlistItemsService {
-  private BASE_URL = "/user/wishlists"
+  private BASE_URL = "/wishlists"
 
   async getWishlistItems(wishlistId: string) {
     const response = await axiosWithAuth.get<TWishlistItem[]>(
