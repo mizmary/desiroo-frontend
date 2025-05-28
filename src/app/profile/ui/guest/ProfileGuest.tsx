@@ -36,7 +36,6 @@ export const ProfileGuest = ({ userId }: { userId: string }) => {
           title={`${listsTitle} ${user.name}`}
           lists={wishlists!}
           onNavigateToWishlists={handleNavigate}
-          userId={userId}
           selectedListPath={selectedListPath}
         />
       </div>
