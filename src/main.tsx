@@ -4,7 +4,6 @@ import ReactDOM from "react-dom/client"
 import { pageConfig } from "@config/page.config"
 import { BrowserRouter, Route, Routes } from "react-router"
 
-import InProgress from "./InProgress"
 import { Providers } from "./providers"
 import { MainLayout } from "./layouts/MainLayout/layout"
 import { Auth } from "./app/auth/page"
@@ -12,6 +11,7 @@ import { Wishlists } from "./app/wishlists/page"
 import { Subscriptions } from "./app/subscriptions/page"
 import { Onboarding } from "./app/Onboarding/page"
 import { Profile } from "./app/profile/page"
+import { InProgress } from "./components/InProgress"
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <Providers>
