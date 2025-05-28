@@ -1,6 +1,28 @@
-.container {
+.subscriptions {
   width: 100%;
   height: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
   @include color(background-color, white);
   @include radius(lg);
+
+  &__header {
+    @include font(h4);
+  }
+
+  &__emptyList {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    span {
+      margin: 0 auto;
+      @include font(h4);
+      @include color(color, grey, 200);
+    }
+  }
 }

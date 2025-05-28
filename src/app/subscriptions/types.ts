@@ -1,6 +1,7 @@
-import { IUser } from "../auth/types"
-
 export type FollowingPerson = {
+  id: string
+  name: string
+  avatar: string
   reservedCount: number
   completedWishesCount: number
-} & IUser
+}

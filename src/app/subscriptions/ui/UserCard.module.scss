@@ -21,20 +21,24 @@
     transform: translateY(-4px);
   }
 
-  &-main {
+  &__main {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 1.2rem;
 
-    &-avatar {
+    &--avatar {
       width: 6.4rem;
       height: 6.4rem;
-      @include radius(md);
-      @include color(background-color, grey, 300);
+      @include radius(full);
+
+      &--image {
+        width: 100%;
+        height: 100%;
+      }
     }
 
-    &-info {
+    &--info {
       display: flex;
       flex-direction: column;
       gap: 0.4rem;
@@ -48,12 +52,17 @@
           gap: 0.4rem;
           align-items: center;
           @include font(helper);
+
+          &--icon {
+            width: 16px;
+            height: 16px;
+          }
         }
       }
     }
   }
 
-  &-button {
+  &__button {
     height: fit-content;
   }
 }
